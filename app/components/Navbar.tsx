@@ -187,10 +187,10 @@ export default function Navbar({ links, className }: NavbarProps) {
         )}
       >
         <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-foreground/15 to-transparent" />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 h-14 sm:h-16 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-3 xs:px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 h-14 sm:h-16 flex items-center justify-between">
           <a
             href="#home"
-            className="text-base sm:text-lg font-bold transition-all duration-300 ease-out hover:scale-105 text-white drop-shadow-lg"
+            className="text-sm xs:text-base sm:text-lg font-bold transition-all duration-300 ease-out hover:scale-105 text-white drop-shadow-lg"
             style={{
               fontFamily: "var(--font-elegant)",
               textShadow:
@@ -252,7 +252,7 @@ export default function Navbar({ links, className }: NavbarProps) {
             <button
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
-              className="md:hidden inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-md border border-foreground/15 text-foreground/80 hover:bg-foreground/5 transition-all duration-300 hover:scale-105 hover:shadow-sm hover:shadow-foreground/10"
+              className="md:hidden inline-flex items-center justify-center w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-md border border-foreground/15 text-foreground/80 hover:bg-foreground/5 transition-all duration-300 hover:scale-105 hover:shadow-sm hover:shadow-foreground/10"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -261,22 +261,22 @@ export default function Navbar({ links, className }: NavbarProps) {
               }}
             >
               <span className="sr-only">Menu</span>
-              <div className="relative w-4 h-4 sm:w-5 sm:h-5">
+              <div className="relative w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5">
                 <span
                   className={cn(
-                    "absolute left-0 top-1 w-4 h-0.5 sm:w-5 sm:h-0.5 bg-current transition-all duration-300 ease-out",
+                    "absolute left-0 top-1 w-3 h-0.5 xs:w-4 xs:h-0.5 sm:w-5 sm:h-0.5 bg-current transition-all duration-300 ease-out",
                     mobileOpen ? "rotate-45 translate-y-2" : "translate-y-0"
                   )}
                 />
                 <span
                   className={cn(
-                    "absolute left-0 top-3 w-4 h-0.5 sm:w-5 sm:h-0.5 bg-current transition-all duration-300 ease-out",
+                    "absolute left-0 top-3 w-3 h-0.5 xs:w-4 xs:h-0.5 sm:w-5 sm:h-0.5 bg-current transition-all duration-300 ease-out",
                     mobileOpen ? "opacity-0" : "opacity-100"
                   )}
                 />
                 <span
                   className={cn(
-                    "absolute left-0 top-5 w-4 h-0.5 sm:w-5 sm:h-0.5 bg-current transition-all duration-300 ease-out",
+                    "absolute left-0 top-5 w-3 h-0.5 xs:w-4 xs:h-0.5 sm:w-5 sm:h-0.5 bg-current transition-all duration-300 ease-out",
                     mobileOpen ? "-rotate-45 -translate-y-2" : "translate-y-0"
                   )}
                 />
@@ -295,7 +295,7 @@ export default function Navbar({ links, className }: NavbarProps) {
             {/* Mobile sidebar */}
             <div
               className={cn(
-                "md:hidden fixed top-0 left-0 h-full w-[85vw] max-w-[85vw] bg-background border-r border-foreground/15 shadow-2xl shadow-foreground/10 transition-all duration-500 ease-out z-60",
+                "md:hidden fixed top-0 left-0 h-full w-[90vw] xs:w-[85vw] max-w-[90vw] xs:max-w-[85vw] bg-background border-r border-foreground/15 shadow-2xl shadow-foreground/10 transition-all duration-500 ease-out z-60",
                 mobileOpen
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-full opacity-0"
@@ -325,7 +325,7 @@ export default function Navbar({ links, className }: NavbarProps) {
               {/* Sidebar content */}
               <div className="relative z-10 h-full flex flex-col overflow-hidden">
                 {/* Sidebar header */}
-                <div className="flex items-center justify-between p-6 border-b border-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 bg-gradient-to-r from-foreground/5 via-transparent to-foreground/5 flex-shrink-0">
+                <div className="flex items-center justify-between p-4 xs:p-6 border-b border-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 bg-gradient-to-r from-foreground/5 via-transparent to-foreground/5 flex-shrink-0 min-h-[80px] xs:min-h-[96px]">
                   <div className="flex items-center gap-4 flex-1">
                     <div className="relative group">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 via-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/30 transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/50 overflow-hidden group-hover:w-36 group-hover:rounded-2xl transform hover:scale-105 hover:rotate-1">
@@ -379,7 +379,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                 {/* Sidebar navigation */}
                 <nav
                   ref={sidebarNavRef}
-                  className="flex-1 overflow-y-auto p-6 flex flex-col gap-3 min-h-0"
+                  className="flex-1 overflow-y-auto p-4 xs:p-6 flex flex-col gap-2 xs:gap-3 min-h-0 max-h-[calc(100vh-200px)] xs:max-h-[calc(100vh-240px)]"
                   style={{
                     WebkitOverflowScrolling: "touch",
                     scrollbarWidth: "thin",
