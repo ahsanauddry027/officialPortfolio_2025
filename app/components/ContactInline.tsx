@@ -114,7 +114,8 @@ export default function ContactInline() {
                   <span
                     className="text-sm font-medium text-foreground/80"
                     style={{
-                      fontFamily: "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
+                      fontFamily:
+                        "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
                     }}
                   >
                     Email
@@ -123,7 +124,8 @@ export default function ContactInline() {
                     href="mailto:ahsanauddry.ndc@gmail.com"
                     className="text-sm text-foreground/60 hover:text-foreground transition-colors"
                     style={{
-                      fontFamily: "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
+                      fontFamily:
+                        "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
                     }}
                   >
                     ahsanauddry.ndc@gmail.com
@@ -154,7 +156,8 @@ export default function ContactInline() {
                   <span
                     className="text-sm font-medium text-foreground/80"
                     style={{
-                      fontFamily: "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
+                      fontFamily:
+                        "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
                     }}
                   >
                     Phone
@@ -162,7 +165,8 @@ export default function ContactInline() {
                   <span
                     className="text-sm text-foreground/60"
                     style={{
-                      fontFamily: "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
+                      fontFamily:
+                        "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
                     }}
                   >
                     +1 (555) 123-4567
@@ -193,7 +197,8 @@ export default function ContactInline() {
                   <span
                     className="text-sm font-medium text-foreground/80"
                     style={{
-                      fontFamily: "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
+                      fontFamily:
+                        "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
                     }}
                   >
                     GitHub
@@ -204,7 +209,8 @@ export default function ContactInline() {
                     rel="noreferrer"
                     className="text-sm text-foreground/60 hover:text-foreground transition-colors"
                     style={{
-                      fontFamily: "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
+                      fontFamily:
+                        "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
                     }}
                   >
                     @ahsanauddry027
@@ -232,7 +238,8 @@ export default function ContactInline() {
                   <span
                     className="text-sm font-medium text-foreground/80"
                     style={{
-                      fontFamily: "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
+                      fontFamily:
+                        "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
                     }}
                   >
                     Discord
@@ -243,7 +250,8 @@ export default function ContactInline() {
                     rel="noreferrer"
                     className="text-sm text-foreground/60 hover:text-foreground transition-colors"
                     style={{
-                      fontFamily: "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
+                      fontFamily:
+                        "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
                     }}
                   >
                     @ahsanauddry027
