@@ -1,26 +1,256 @@
 @import "tailwindcss";
 
+/* Light theme (default) */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Dark theme via media query */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
 
+/* Explicit dark theme */
+html[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* Explicit light theme */
+html[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Apply theme variables */
+html,
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto), var(--font-inter), var(--font-open-sans),
+    "Roboto", "Inter", "Open Sans", Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Ensure all elements inherit the theme colors */
+* {
+  border-color: var(--foreground);
+}
+
+/* Theme-aware utility classes for better Tailwind compatibility */
+.text-foreground {
+  color: var(--foreground) !important;
+}
+
+.text-foreground\/70 {
+  color: color-mix(in srgb, var(--foreground) 70%, transparent) !important;
+}
+
+.text-foreground\/80 {
+  color: color-mix(in srgb, var(--foreground) 80%, transparent) !important;
+}
+
+.text-foreground\/60 {
+  color: color-mix(in srgb, var(--foreground) 60%, transparent) !important;
+}
+
+.text-foreground\/40 {
+  color: color-mix(in srgb, var(--foreground) 40%, transparent) !important;
+}
+
+.text-background {
+  color: var(--background) !important;
+}
+
+.bg-background {
+  background-color: var(--background) !important;
+}
+
+.bg-background\/60 {
+  background-color: color-mix(
+    in srgb,
+    var(--background) 60%,
+    transparent
+  ) !important;
+}
+
+.bg-background\/80 {
+  background-color: color-mix(
+    in srgb,
+    var(--background) 80%,
+    transparent
+  ) !important;
+}
+
+.bg-background\/95 {
+  background-color: color-mix(
+    in srgb,
+    var(--background) 95%,
+    transparent
+  ) !important;
+}
+
+.bg-foreground {
+  background-color: var(--foreground) !important;
+}
+
+.bg-foreground\/5 {
+  background-color: color-mix(
+    in srgb,
+    var(--foreground) 5%,
+    transparent
+  ) !important;
+}
+
+.bg-foreground\/10 {
+  background-color: color-mix(
+    in srgb,
+    var(--foreground) 10%,
+    transparent
+  ) !important;
+}
+
+.bg-foreground\/15 {
+  background-color: color-mix(
+    in srgb,
+    var(--foreground) 15%,
+    transparent
+  ) !important;
+}
+
+.bg-foreground\/20 {
+  background-color: color-mix(
+    in srgb,
+    var(--foreground) 20%,
+    transparent
+  ) !important;
+}
+
+.border-foreground {
+  border-color: var(--foreground) !important;
+}
+
+.border-foreground\/10 {
+  border-color: color-mix(
+    in srgb,
+    var(--foreground) 10%,
+    transparent
+  ) !important;
+}
+
+.border-foreground\/15 {
+  border-color: color-mix(
+    in srgb,
+    var(--foreground) 15%,
+    transparent
+  ) !important;
+}
+
+.border-foreground\/20 {
+  border-color: color-mix(
+    in srgb,
+    var(--foreground) 20%,
+    transparent
+  ) !important;
+}
+
+.border-foreground\/30 {
+  border-color: color-mix(
+    in srgb,
+    var(--foreground) 30%,
+    transparent
+  ) !important;
+}
+
+.border-white\/15 {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.text-white\/40 {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.text-white\/80 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Subtle, elegant defaults */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
+/* Font utility classes */
+.font-roboto {
+  font-family: var(--font-roboto), "Roboto", sans-serif;
+}
+
+.font-inter {
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+.font-open-sans {
+  font-family: var(--font-open-sans), "Open Sans", sans-serif;
+}
+
+/* Smooth typography rhythm */
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+  font-family: var(--font-roboto), var(--font-inter), "Roboto", "Inter",
+    sans-serif;
+}
+
+p {
+  text-wrap: pretty;
+  font-family: var(--font-roboto), var(--font-inter), "Roboto", "Inter",
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Ensure proper mobile rendering */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Fix for mobile viewport issues */
+@supports (-webkit-touch-callout: none) {
+  html {
+    height: -webkit-fill-available;
+  }
+
+  body {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Hide scrollbar for skills row on WebKit */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
