@@ -400,38 +400,6 @@ export default function Navbar({ links, className }: NavbarProps) {
                   );
                 })}
 
-                {/* Theme toggle in mobile sidebar */}
-                <div className="flex items-center justify-between px-5 py-4 mt-6 border-t border-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 bg-gradient-to-r from-foreground/5 via-transparent to-foreground/5 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400/20 to-orange-500/20 flex items-center justify-center">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        className="text-amber-500"
-                      >
-                        <path
-                          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      className="text-sm font-semibold text-foreground/80 tracking-wide"
-                      style={{
-                        fontFamily:
-                          "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
-                      }}
-                    >
-                      Theme
-                    </span>
-                  </div>
-                  <ThemeToggle />
-                </div>
               </nav>
 
               {/* Sidebar footer */}
