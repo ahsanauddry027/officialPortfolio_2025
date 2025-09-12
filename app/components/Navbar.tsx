@@ -103,9 +103,14 @@ export default function Navbar({ links, className }: NavbarProps) {
   useEffect(() => {
     if (mobileOpen) {
       const original = document.body.style.overflow;
+      const originalPosition = document.body.style.position;
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
       return () => {
         document.body.style.overflow = original;
+        document.body.style.position = originalPosition;
+        document.body.style.width = "";
       };
     }
   }, [mobileOpen]);
@@ -255,7 +260,7 @@ export default function Navbar({ links, className }: NavbarProps) {
           {/* Mobile sidebar */}
           <div
             className={cn(
-              "md:hidden fixed top-0 left-0 h-full w-[85vw] max-w-[85vw] bg-gradient-to-br from-background/98 via-background/95 to-background/90 backdrop-blur-xl border-r border-foreground/15 shadow-2xl shadow-foreground/10 transition-all duration-500 ease-out z-50 relative overflow-y-auto",
+              "md:hidden fixed top-0 left-0 h-full w-[85vw] max-w-[85vw] bg-gradient-to-br from-background/98 via-background/95 to-background/90 backdrop-blur-xl border-r border-foreground/15 shadow-2xl shadow-foreground/10 transition-all duration-500 ease-out z-50 flex flex-col",
               mobileOpen
                 ? "translate-x-0 opacity-100"
                 : "-translate-x-full opacity-0"
@@ -264,6 +269,9 @@ export default function Navbar({ links, className }: NavbarProps) {
               transform: mobileOpen ? "translateX(0)" : "translateX(-100%)",
               opacity: mobileOpen ? 1 : 0,
               pointerEvents: mobileOpen ? "auto" : "none",
+              WebkitOverflowScrolling: "touch",
+              overflowY: "auto",
+              overflowX: "hidden",
             }}
           >
             {/* Subtle background pattern */}
@@ -283,9 +291,9 @@ export default function Navbar({ links, className }: NavbarProps) {
             />
 
             {/* Sidebar content */}
-            <div className="relative z-10 min-h-full flex flex-col">
+            <div className="relative z-10 flex flex-col h-full">
               {/* Sidebar header */}
-              <div className="flex items-center justify-between p-6 border-b border-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 bg-gradient-to-r from-foreground/5 via-transparent to-foreground/5">
+              <div className="flex items-center justify-between p-6 border-b border-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 bg-gradient-to-r from-foreground/5 via-transparent to-foreground/5 flex-shrink-0">
                 <div className="flex items-center gap-4 flex-1">
                   <div className="relative group">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 via-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/30 transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/50 overflow-hidden group-hover:w-36 group-hover:rounded-2xl transform hover:scale-105 hover:rotate-1">
@@ -333,7 +341,7 @@ export default function Navbar({ links, className }: NavbarProps) {
               </div>
 
               {/* Sidebar navigation */}
-              <nav className="p-6 flex flex-col gap-3">
+              <nav className="flex-1 overflow-y-auto p-6 flex flex-col gap-3" style={{ WebkitOverflowScrolling: "touch" }}>
                 {links.map((link, index) => {
                   const id = link.href.replace("#", "");
                   const isActive = activeId === id;
@@ -402,7 +410,7 @@ export default function Navbar({ links, className }: NavbarProps) {
               </nav>
 
               {/* Sidebar footer */}
-              <div className="mt-auto p-6 border-t border-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 bg-gradient-to-t from-foreground/5 via-transparent to-transparent">
+              <div className="flex-shrink-0 p-6 border-t border-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 bg-gradient-to-t from-foreground/5 via-transparent to-transparent">
                 <div className="space-y-6">
                   {/* Contact Credentials */}
                   <div className="space-y-2">
