@@ -21,11 +21,12 @@ export default function ContactInline() {
             Contact
           </p>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-medium font-[var(--font-display)]">
-            Let's build something great
+            Let&apos;s build something great
           </h2>
           <p className="text-foreground/70 text-sm sm:text-base leading-relaxed">
-            I'm open to freelance and full-time opportunities. Tell me about
-            your goals and timeline, and I'll reply within 24–48 hours.
+            I&apos;m open to freelance and full-time opportunities. Tell me
+            about your goals and timeline, and I&apos;ll reply within 24–48
+            hours.
           </p>
           <div className="flex flex-wrap gap-2 sm:gap-3 pt-2">
             <a

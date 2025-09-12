@@ -81,7 +81,7 @@ export default function ContactForm({ toEmail }: ContactFormProps) {
         setMessage("");
 
         // Show success message
-        alert("✅ Message sent successfully! I'll get back to you soon.");
+        alert("✅ Message sent successfully! I&apos;ll get back to you soon.");
 
         // Reset status
         setStatus("idle");
