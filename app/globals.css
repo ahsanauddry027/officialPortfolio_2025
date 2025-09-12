@@ -254,3 +254,53 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Mobile optimizations for 375px width */
+@media (max-width: 375px) {
+  /* Ensure navbar fits properly on very small screens */
+  .navbar-mobile-optimized {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Optimize mobile sidebar for 375px */
+  .mobile-sidebar-375 {
+    width: 85vw;
+    max-width: 300px;
+  }
+
+  /* Ensure proper touch targets on mobile */
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Optimize text sizes for small screens */
+  .mobile-text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  /* Fix sidebar navigation height for smaller devices */
+  .mobile-nav-height {
+    max-height: calc(100vh - 300px) !important;
+  }
+
+  /* Ensure footer doesn't overlap with navigation */
+  .mobile-sidebar-footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Additional mobile optimizations for very small screens */
+@media (max-width: 320px) {
+  .mobile-nav-height {
+    max-height: calc(100vh - 280px) !important;
+  }
+
+  .mobile-sidebar-375 {
+    width: 90vw;
+    max-width: 280px;
+  }
+}
