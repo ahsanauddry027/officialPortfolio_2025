@@ -11,6 +11,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import { MobileSidebarProvider } from "./contexts/MobileSidebarContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -78,16 +79,18 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${dancingScript.variable} ${greatVibes.variable} ${roboto.variable} ${inter.variable} ${openSans.variable} antialiased`}
       >
-        <Navbar
-          links={[
-            { href: "#home", label: "Home" },
-            { href: "#projects", label: "Projects" },
-            { href: "#about", label: "About" },
-            { href: "#skills", label: "Skills" },
-            { href: "#contact", label: "Contact" },
-          ]}
-        />
-        {children}
+        <MobileSidebarProvider>
+          <Navbar
+            links={[
+              { href: "#home", label: "Home" },
+              { href: "#projects", label: "Projects" },
+              { href: "#about", label: "About" },
+              { href: "#skills", label: "Skills" },
+              { href: "#contact", label: "Contact" },
+            ]}
+          />
+          {children}
+        </MobileSidebarProvider>
       </body>
     </html>
   );
