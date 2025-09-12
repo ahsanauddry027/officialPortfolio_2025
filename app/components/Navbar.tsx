@@ -399,7 +399,6 @@ export default function Navbar({ links, className }: NavbarProps) {
                     </a>
                   );
                 })}
-
               </nav>
 
               {/* Sidebar footer */}
