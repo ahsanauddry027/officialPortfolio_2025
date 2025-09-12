@@ -255,7 +255,7 @@ export default function Navbar({ links, className }: NavbarProps) {
           {/* Mobile sidebar */}
           <div
             className={cn(
-              "md:hidden fixed top-0 left-0 h-full w-[85vw] max-w-[85vw] bg-gradient-to-br from-background/98 via-background/95 to-background/90 backdrop-blur-xl border-r border-foreground/15 shadow-2xl shadow-foreground/10 transition-all duration-500 ease-out z-50 relative overflow-hidden",
+              "md:hidden fixed top-0 left-0 h-full w-[85vw] max-w-[85vw] bg-gradient-to-br from-background/98 via-background/95 to-background/90 backdrop-blur-xl border-r border-foreground/15 shadow-2xl shadow-foreground/10 transition-all duration-500 ease-out z-50 relative overflow-y-auto",
               mobileOpen
                 ? "translate-x-0 opacity-100"
                 : "-translate-x-full opacity-0"
@@ -283,7 +283,7 @@ export default function Navbar({ links, className }: NavbarProps) {
             />
 
             {/* Sidebar content */}
-            <div className="relative z-10 h-full flex flex-col">
+            <div className="relative z-10 min-h-full flex flex-col">
               {/* Sidebar header */}
               <div className="flex items-center justify-between p-6 border-b border-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 bg-gradient-to-r from-foreground/5 via-transparent to-foreground/5">
                 <div className="flex items-center gap-4 flex-1">
