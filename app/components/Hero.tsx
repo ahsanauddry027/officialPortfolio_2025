@@ -42,11 +42,11 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[70svh] sm:min-h-[75svh] md:min-h-[88svh] flex items-center border border-foreground/20 rounded-lg px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 transition-all duration-300 hover:border-opacity-80 hover:shadow-lg hover:shadow-purple-500/20 hover:scale-[1.02] cursor-pointer group bg-background/50"
+      className="relative min-h-[70svh] sm:min-h-[75svh] md:min-h-[88svh] flex items-center border border-border rounded-modern-lg px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 transition-all duration-300 hover:border-opacity-80 hover:shadow-modern-lg hover:scale-[1.01] cursor-pointer group bg-background"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(60%_50%_at_50%_0%,black,transparent)]">
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_500px_at_50%_-20%,rgba(120,119,198,0.18),transparent)] group-hover:bg-[radial-gradient(1200px_500px_at_50%_-20%,rgba(120,119,198,0.25),transparent)] transition-all duration-500" />
-        <div className="absolute -inset-24 bg-[conic-gradient(from_90deg_at_50%_50%,rgba(120,119,198,0.1),transparent,rgba(120,119,198,0.1))] group-hover:bg-[conic-gradient(from_90deg_at_50%_50%,rgba(120,119,198,0.15),transparent,rgba(120,119,198,0.15))] transition-all duration-500" />
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_500px_at_50%_-20%,rgba(0,0,0,0.05),transparent)] group-hover:bg-[radial-gradient(1200px_500px_at_50%_-20%,rgba(0,0,0,0.08),transparent)] transition-all duration-500" />
+        <div className="absolute -inset-24 bg-[conic-gradient(from_90deg_at_50%_50%,rgba(0,0,0,0.03),transparent,rgba(0,0,0,0.03))] group-hover:bg-[conic-gradient(from_90deg_at_50%_50%,rgba(0,0,0,0.05),transparent,rgba(0,0,0,0.05))] transition-all duration-500" />
       </div>
       <div className="max-w-6xl mx-auto w-full">
         <motion.p
@@ -61,7 +61,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05 }}
-          className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight bg-clip-text text-transparent bg-[linear-gradient(135deg,rgba(120,119,198,1),rgba(120,119,198,0.2))] font-[var(--font-display)]"
+          className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-gradient font-[var(--font-display)]"
         >
           Ahsan Habib
         </motion.h1>
@@ -84,16 +84,15 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="group h-10 sm:h-11 px-4 sm:px-6 inline-flex items-center justify-center rounded-full relative overflow-hidden text-sm font-medium"
+            className="group h-10 sm:h-11 px-4 sm:px-6 inline-flex items-center justify-center rounded-full relative overflow-hidden text-sm font-medium gradient-bg text-primary-foreground hover-lift shadow-modern"
           >
-            <span className="absolute inset-0 bg-[linear-gradient(135deg,rgba(120,119,198,0.9),rgba(120,119,198,0.3))] opacity-90" />
-            <span className="relative text-background">Contact Me</span>
+            <span className="relative">Contact Me</span>
           </a>
           <a
             href="https://github.com/ahsanauddry027"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-10 sm:h-11 px-4 sm:px-6 inline-flex items-center justify-center rounded-full border border-foreground/20 text-sm font-medium hover:bg-foreground/5 transition-colors"
+            className="h-10 sm:h-11 px-4 sm:px-6 inline-flex items-center justify-center rounded-full border border-border text-sm font-medium hover:bg-accent hover-lift transition-all duration-300"
           >
             View My Work
           </a>

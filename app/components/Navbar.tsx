@@ -291,11 +291,11 @@ export default function Navbar({ links, className }: NavbarProps) {
                 pointerEvents: mobileOpen ? "auto" : "none",
               }}
             >
-              {/* Red gradient background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-red-600/15" />
-                <div className="absolute top-1/4 right-0 w-32 h-32 bg-gradient-to-br from-red-400/10 to-transparent rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 left-0 w-24 h-24 bg-gradient-to-tr from-red-500/10 to-transparent rounded-full blur-2xl" />
+              {/* Subtle background pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-foreground/5 via-transparent to-foreground/3" />
+                <div className="absolute top-1/4 right-0 w-32 h-32 bg-gradient-to-br from-foreground/3 to-transparent rounded-full blur-3xl" />
+                <div className="absolute bottom-1/4 left-0 w-24 h-24 bg-gradient-to-tr from-foreground/3 to-transparent rounded-full blur-2xl" />
               </div>
 
               {/* Grid pattern overlay */}

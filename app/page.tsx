@@ -16,9 +16,7 @@ export default function Home() {
   const { mobileOpen } = useMobileSidebar();
 
   return (
-    <div className="font-sans min-h-screen bg-background relative overflow-hidden">
-      {/* Red gradient background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-red-50/30 via-transparent to-red-100/20 pointer-events-none" />
+    <div className="font-sans min-h-screen bg-background relative">
       {/* Navbar moved to RootLayout for all pages */}
       <main
         className={cn(
