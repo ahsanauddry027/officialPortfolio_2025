@@ -270,23 +270,28 @@ export default function Navbar({ links, className }: NavbarProps) {
           </div>
         </div>
         {/* Mobile sidebar overlay/backdrop */}
-        {mounted && mobileOpen && (
+        {mounted && (
           <div>
             <div
-              className="md:hidden fixed inset-0 z-[9998] mobile-sidebar-backdrop transition-opacity duration-300 opacity-100 pointer-events-auto"
+              className={cn(
+                "md:hidden fixed inset-0 z-[9998] mobile-sidebar-backdrop transition-all duration-500 ease-out pointer-events-auto",
+                mobileOpen 
+                  ? "opacity-100 backdrop-blur-sm" 
+                  : "opacity-0 backdrop-blur-none pointer-events-none"
+              )}
               onClick={() => setMobileOpen(false)}
             />
 
             {/* Mobile sidebar */}
             <div
               className={cn(
-                "md:hidden fixed top-0 left-0 h-full w-[90vw] max-w-[320px] mobile-sidebar shadow-modern-lg transition-all duration-500 ease-out z-[9999] mobile-sidebar-375",
+                "md:hidden fixed top-0 left-0 h-full w-[90vw] max-w-[320px] mobile-sidebar shadow-modern-lg transition-all duration-700 ease-out z-[9999] mobile-sidebar-375",
                 mobileOpen
-                  ? "translate-x-0 opacity-100"
-                  : "-translate-x-full opacity-0"
+                  ? "translate-x-0 opacity-100 scale-100"
+                  : "-translate-x-full opacity-0 scale-95"
               )}
               style={{
-                transform: mobileOpen ? "translateX(0)" : "translateX(-100%)",
+                transform: mobileOpen ? "translateX(0) scale(1)" : "translateX(-100%) scale(0.95)",
                 opacity: mobileOpen ? 1 : 0,
                 pointerEvents: mobileOpen ? "auto" : "none",
               }}
@@ -310,9 +315,14 @@ export default function Navbar({ links, className }: NavbarProps) {
               {/* Sidebar content */}
               <div className="relative z-10 h-full flex flex-col overflow-hidden">
                 {/* Sidebar header */}
-                <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border bg-muted/50 flex-shrink-0 min-h-[80px] sm:min-h-[96px]">
+                <div className={cn(
+                  "flex items-center justify-between p-4 sm:p-6 border-b border-border bg-muted/50 flex-shrink-0 min-h-[80px] sm:min-h-[96px] transition-all duration-500 ease-out",
+                  mobileOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                )} style={{
+                  transitionDelay: mobileOpen ? "100ms" : "0ms"
+                }}>
                   <div className="flex items-center gap-4 flex-1">
-                    <div className="w-12 h-12 rounded-modern bg-red-primary text-white flex items-center justify-center font-bold text-lg shadow-red hover-lift red-glow-dark">
+                    <div className="w-12 h-12 rounded-modern bg-red-primary text-white flex items-center justify-center font-bold text-lg shadow-red hover-lift-enhanced red-glow-dark transition-all duration-300 hover:scale-105">
                       AH
                     </div>
                     <div className="flex flex-col">
@@ -353,14 +363,18 @@ export default function Navbar({ links, className }: NavbarProps) {
                 {/* Sidebar navigation */}
                 <nav
                   ref={sidebarNavRef}
-                  className="flex-1 overflow-y-auto p-4 sm:p-6 flex flex-col gap-2 sm:gap-3 min-h-0 max-h-[calc(100vh-280px)] sm:max-h-[calc(100vh-320px)] mobile-nav-height"
+                  className={cn(
+                    "flex-1 overflow-y-auto p-4 sm:p-6 flex flex-col gap-2 sm:gap-3 min-h-0 max-h-[calc(100vh-280px)] sm:max-h-[calc(100vh-320px)] mobile-nav-height transition-all duration-500 ease-out",
+                    mobileOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                  )}
                   style={{
                     WebkitOverflowScrolling: "touch",
                     scrollbarWidth: "thin",
                     scrollbarColor: "rgba(156, 163, 175, 0.3) transparent",
+                    transitionDelay: mobileOpen ? "200ms" : "0ms"
                   }}
                 >
-                  {links.map((link) => {
+                  {links.map((link, index) => {
                     const id = link.href.replace("#", "");
                     const isActive = activeId === id;
                     return (
@@ -373,6 +387,9 @@ export default function Navbar({ links, className }: NavbarProps) {
                             ? "text-foreground bg-accent shadow-modern"
                             : "text-muted-foreground hover:text-foreground hover:bg-accent"
                         )}
+                        style={{
+                          animation: mobileOpen ? `slideInFromLeft 0.4s ease-out ${0.3 + index * 0.1}s both` : 'none'
+                        }}
                         onClick={() => setMobileOpen(false)}
                       >
                         <span className="flex-1 flex items-center gap-3">
@@ -397,7 +414,12 @@ export default function Navbar({ links, className }: NavbarProps) {
                 </nav>
 
                 {/* Sidebar footer */}
-                <div className="flex-shrink-0 p-6 border-t border-border bg-muted/30 mobile-sidebar-footer">
+                <div className={cn(
+                  "flex-shrink-0 p-6 border-t border-border bg-muted/30 mobile-sidebar-footer transition-all duration-500 ease-out",
+                  mobileOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                )} style={{
+                  transitionDelay: mobileOpen ? "400ms" : "0ms"
+                }}>
                   <div className="space-y-4 sm:space-y-6">
                     {/* Contact Credentials */}
                     <div className="space-y-2">
@@ -406,7 +428,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                       </h3>
 
                       {/* Email */}
-                      <div className="flex items-start gap-3 p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift">
+                      <div className="flex items-start gap-3 p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift-enhanced">
                         <div className="w-8 h-8 rounded-modern bg-primary/10 flex items-center justify-center flex-shrink-0">
                           <svg
                             width="16"
@@ -440,7 +462,6 @@ export default function Navbar({ links, className }: NavbarProps) {
                           </span>
                         </div>
                       </div>
-
                     </div>
 
                     <div className="text-center space-y-2">
