@@ -274,10 +274,10 @@ export default function Navbar({ links, className }: NavbarProps) {
           <div>
             <div
               className={cn(
-                "md:hidden fixed inset-0 z-[9998] mobile-sidebar-backdrop transition-all duration-500 ease-out pointer-events-auto",
+                "md:hidden fixed inset-0 z-[9998] bg-black/50 transition-all duration-500 ease-out pointer-events-auto",
                 mobileOpen
-                  ? "opacity-100 backdrop-blur-sm"
-                  : "opacity-0 backdrop-blur-none pointer-events-none"
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none"
               )}
               onClick={() => setMobileOpen(false)}
             />
