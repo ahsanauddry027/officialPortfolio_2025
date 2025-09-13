@@ -175,7 +175,6 @@ export default function Navbar({ links, className }: NavbarProps) {
 
   return (
     <>
-
       <header
         className={cn(
           "sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border transition-all duration-300 relative",
@@ -385,9 +384,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                                 : "bg-muted-foreground scale-75 group-hover:scale-100 group-hover:bg-primary"
                             )}
                           />
-                          <span className="tracking-wide">
-                            {link.label}
-                          </span>
+                          <span className="tracking-wide">{link.label}</span>
                         </span>
 
                         {/* Active indicator */}
