@@ -14,9 +14,10 @@ export default function BackToTopButton() {
     const toggleVisibility = () => {
       // Show button when user scrolls down to footer area (last 30% of page)
       const scrollHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
       const clientHeight = document.documentElement.clientHeight;
-      
+
       // Show button when scrolled past 70% of the page height
       const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
       setIsVisible(scrollPercentage > 0.7);
@@ -77,9 +78,9 @@ export default function BackToTopButton() {
             strokeLinejoin="round"
           />
         </svg>
-        
+
         {/* Glow effect */}
-        <div 
+        <div
           className={cn(
             "absolute inset-0 rounded-full bg-red-primary/30 blur-md transition-all duration-300",
             isHovered ? "opacity-100 scale-150" : "opacity-0 scale-100"
