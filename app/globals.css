@@ -18,11 +18,26 @@
   --destructive-foreground: #ffffff;
   --ring: #dc2626;
   --radius: 0.5rem;
-  
+
   /* Red gradient variables */
-  --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
-  --gradient-secondary: linear-gradient(135deg, #fef2f2 0%, #fee2e2 50%, #fecaca 100%);
-  --gradient-accent: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+  --gradient-primary: linear-gradient(
+    135deg,
+    #dc2626 0%,
+    #b91c1c 50%,
+    #991b1b 100%
+  );
+  --gradient-secondary: linear-gradient(
+    135deg,
+    #fef2f2 0%,
+    #fee2e2 50%,
+    #fecaca 100%
+  );
+  --gradient-accent: linear-gradient(
+    135deg,
+    #dc2626 0%,
+    #ef4444 50%,
+    #f87171 100%
+  );
 }
 
 /* Dark theme with red gradient vibe */
@@ -42,11 +57,26 @@
     --destructive: #ef4444;
     --destructive-foreground: #ffffff;
     --ring: #dc2626;
-    
+
     /* Dark red gradient variables */
-    --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
-    --gradient-secondary: linear-gradient(135deg, #1f1f1f 0%, #262626 50%, #404040 100%);
-    --gradient-accent: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+    --gradient-primary: linear-gradient(
+      135deg,
+      #dc2626 0%,
+      #b91c1c 50%,
+      #991b1b 100%
+    );
+    --gradient-secondary: linear-gradient(
+      135deg,
+      #1f1f1f 0%,
+      #262626 50%,
+      #404040 100%
+    );
+    --gradient-accent: linear-gradient(
+      135deg,
+      #dc2626 0%,
+      #ef4444 50%,
+      #f87171 100%
+    );
   }
 }
 
@@ -66,11 +96,26 @@ html[data-theme="dark"] {
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --ring: #dc2626;
-  
+
   /* Dark red gradient variables */
-  --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
-  --gradient-secondary: linear-gradient(135deg, #1f1f1f 0%, #262626 50%, #404040 100%);
-  --gradient-accent: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+  --gradient-primary: linear-gradient(
+    135deg,
+    #dc2626 0%,
+    #b91c1c 50%,
+    #991b1b 100%
+  );
+  --gradient-secondary: linear-gradient(
+    135deg,
+    #1f1f1f 0%,
+    #262626 50%,
+    #404040 100%
+  );
+  --gradient-accent: linear-gradient(
+    135deg,
+    #dc2626 0%,
+    #ef4444 50%,
+    #f87171 100%
+  );
 }
 
 /* Explicit light theme with red gradient */
@@ -89,11 +134,26 @@ html[data-theme="light"] {
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --ring: #dc2626;
-  
+
   /* Light red gradient variables */
-  --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
-  --gradient-secondary: linear-gradient(135deg, #fef2f2 0%, #fee2e2 50%, #fecaca 100%);
-  --gradient-accent: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+  --gradient-primary: linear-gradient(
+    135deg,
+    #dc2626 0%,
+    #b91c1c 50%,
+    #991b1b 100%
+  );
+  --gradient-secondary: linear-gradient(
+    135deg,
+    #fef2f2 0%,
+    #fee2e2 50%,
+    #fecaca 100%
+  );
+  --gradient-accent: linear-gradient(
+    135deg,
+    #dc2626 0%,
+    #ef4444 50%,
+    #f87171 100%
+  );
 }
 
 /* Base styles */
@@ -370,7 +430,7 @@ p {
 .border-gradient-red {
   border: 2px solid transparent;
   background: linear-gradient(var(--background), var(--background)) padding-box,
-              var(--gradient-primary) border-box;
+    var(--gradient-primary) border-box;
 }
 
 /* Smooth hover effects */
@@ -412,11 +472,13 @@ p {
 
 /* Red gradient shadows */
 .shadow-red {
-  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1), 0 2px 4px -1px rgba(220, 38, 38, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1),
+    0 2px 4px -1px rgba(220, 38, 38, 0.06);
 }
 
 .shadow-red-lg {
-  box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.1), 0 4px 6px -2px rgba(220, 38, 38, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.1),
+    0 4px 6px -2px rgba(220, 38, 38, 0.05);
 }
 
 /* Modern border radius */
