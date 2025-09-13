@@ -73,7 +73,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      
+
       {/* Back to top button */}
       <BackToTopButton />
     </div>
