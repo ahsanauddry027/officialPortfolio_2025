@@ -115,7 +115,7 @@ export default function ContactForm({ toEmail }: ContactFormProps) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Your name"
-          className="h-10 sm:h-11 px-3 rounded-md border border-foreground/15 bg-background/60 backdrop-blur outline-none focus:ring-2 focus:ring-foreground/20 text-sm sm:text-base"
+          className="h-10 sm:h-11 px-3 rounded-md border border-foreground/15 bg-background outline-none focus:ring-2 focus:ring-foreground/20 text-sm sm:text-base"
           required
         />
       </div>
@@ -132,7 +132,7 @@ export default function ContactForm({ toEmail }: ContactFormProps) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@example.com"
-          className="h-10 sm:h-11 px-3 rounded-md border border-foreground/15 bg-background/60 backdrop-blur outline-none focus:ring-2 focus:ring-foreground/20 text-sm sm:text-base"
+          className="h-10 sm:h-11 px-3 rounded-md border border-foreground/15 bg-background outline-none focus:ring-2 focus:ring-foreground/20 text-sm sm:text-base"
           required
         />
       </div>
@@ -149,7 +149,7 @@ export default function ContactForm({ toEmail }: ContactFormProps) {
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Tell me about your project..."
           rows={5}
-          className="px-3 py-3 rounded-md border border-foreground/15 bg-background/60 backdrop-blur outline-none focus:ring-2 focus:ring-foreground/20 resize-y text-sm sm:text-base"
+          className="px-3 py-3 rounded-md border border-foreground/15 bg-background outline-none focus:ring-2 focus:ring-foreground/20 resize-y text-sm sm:text-base"
           required
         />
       </div>

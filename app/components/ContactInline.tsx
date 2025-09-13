@@ -266,9 +266,8 @@ export default function ContactInline() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className="rounded-2xl border border-foreground/10 p-4 sm:p-6 md:p-8 bg-background/60 backdrop-blur relative overflow-hidden"
+          className="rounded-2xl border border-foreground/10 p-4 sm:p-6 md:p-8 bg-background relative"
         >
-          <div className="pointer-events-none absolute -inset-24 rounded-[inherit] bg-[radial-gradient(260px_200px_at_10%_120%,rgba(120,119,198,0.18),transparent)]" />
           <ContactForm toEmail="ahsanauddry.ndc@gmail.com" />
         </motion.div>
       </div>

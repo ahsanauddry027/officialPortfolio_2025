@@ -177,7 +177,7 @@ export default function Navbar({ links, className }: NavbarProps) {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border transition-all duration-300 relative",
+          "sticky top-0 z-50 bg-background border-b border-border transition-all duration-300 relative",
           className
         )}
       >
@@ -269,17 +269,9 @@ export default function Navbar({ links, className }: NavbarProps) {
             </button>
           </div>
         </div>
-        {/* Mobile sidebar overlay/backdrop */}
+        {/* Mobile sidebar */}
         {mounted && (
           <div>
-            <div
-              className={cn(
-                "md:hidden fixed inset-0 z-[9998] bg-black/50 transition-all duration-500 ease-out pointer-events-auto",
-                mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-              )}
-              onClick={() => setMobileOpen(false)}
-            />
-
             {/* Mobile sidebar */}
             <div
               className={cn(
@@ -296,22 +288,6 @@ export default function Navbar({ links, className }: NavbarProps) {
                 pointerEvents: mobileOpen ? "auto" : "none",
               }}
             >
-              {/* Subtle background pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-foreground/5 via-transparent to-foreground/3" />
-                <div className="absolute top-1/4 right-0 w-32 h-32 bg-gradient-to-br from-foreground/3 to-transparent rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 left-0 w-24 h-24 bg-gradient-to-tr from-foreground/3 to-transparent rounded-full blur-2xl" />
-              </div>
-
-              {/* Grid pattern overlay */}
-              <div
-                className="absolute inset-0 opacity-[0.02]"
-                style={{
-                  backgroundImage: `radial-gradient(circle at 1px 1px, var(--foreground) 1px, transparent 0)`,
-                  backgroundSize: "20px 20px",
-                }}
-              />
-
               {/* Sidebar content */}
               <div className="relative z-10 h-full flex flex-col overflow-hidden">
                 {/* Sidebar header */}

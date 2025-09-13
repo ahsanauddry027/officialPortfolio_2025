@@ -85,18 +85,7 @@ export default function BackToTopButton() {
             strokeLinejoin="round"
           />
         </svg>
-
-        {/* Glow effect */}
-        <div
-          className={cn(
-            "absolute inset-0 rounded-full bg-red-primary/30 blur-md transition-all duration-300",
-            isHovered ? "opacity-100 scale-150" : "opacity-0 scale-100"
-          )}
-        />
       </div>
-
-      {/* Pulse animation ring */}
-      <div className="absolute inset-0 rounded-full border-2 border-red-primary/30 animate-ping" />
     </button>
   );
 }

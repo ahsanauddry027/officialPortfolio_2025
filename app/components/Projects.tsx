@@ -109,10 +109,9 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="group rounded-2xl border border-foreground/10 overflow-hidden bg-background/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/10"
+              className="group rounded-2xl border border-foreground/10 overflow-hidden bg-background transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="relative h-36 sm:h-40 md:h-44 bg-foreground/5 overflow-hidden">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-[radial-gradient(400px_200px_at_50%_0%,rgba(120,119,198,0.25),transparent)]" />
                 <Image
                   src={p.img}
                   alt={p.title}
