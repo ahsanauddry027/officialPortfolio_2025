@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[70svh] sm:min-h-[75svh] md:min-h-[88svh] flex items-center border border-border rounded-modern-lg px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 transition-all duration-300 hover:border-opacity-80 hover:shadow-modern-lg hover:scale-[1.01] cursor-pointer group bg-background"
+      className="relative min-h-[70svh] sm:min-h-[75svh] md:min-h-[88svh] flex items-center border border-border rounded-modern-lg px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 transition-all duration-300 hover:border-red-primary hover:red-glow-dark-lg hover:scale-[1.01] cursor-pointer group bg-background"
     >
       <div className="max-w-6xl mx-auto w-full">
         <motion.p
