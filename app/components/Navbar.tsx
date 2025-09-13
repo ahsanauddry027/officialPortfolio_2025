@@ -271,7 +271,7 @@ export default function Navbar({ links, className }: NavbarProps) {
         </div>
         {/* Mobile sidebar overlay/backdrop */}
         {mounted && mobileOpen && (
-          <>
+          <div>
             <div
               className="md:hidden fixed inset-0 z-[9998] mobile-sidebar-backdrop transition-opacity duration-300 opacity-100 pointer-events-auto"
               onClick={() => setMobileOpen(false)}
@@ -406,8 +406,8 @@ export default function Navbar({ links, className }: NavbarProps) {
                       </h3>
 
                       {/* Email */}
-                      <div className="flex items-center gap-3 p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift">
-                        <div className="w-8 h-8 rounded-modern bg-primary/10 flex items-center justify-center">
+                      <div className="flex items-start gap-3 p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift">
+                        <div className="w-8 h-8 rounded-modern bg-primary/10 flex items-center justify-center flex-shrink-0">
                           <svg
                             width="16"
                             height="16"
@@ -431,19 +431,19 @@ export default function Navbar({ links, className }: NavbarProps) {
                             />
                           </svg>
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col min-w-0 flex-1">
                           <span className="text-sm font-medium text-foreground">
                             Email
                           </span>
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-sm text-muted-foreground break-all">
                             ahsan.habib@example.com
                           </span>
                         </div>
                       </div>
 
                       {/* Phone */}
-                      <div className="flex items-center gap-3 p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift">
-                        <div className="w-8 h-8 rounded-modern bg-primary/10 flex items-center justify-center">
+                      <div className="flex items-start gap-3 p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift">
+                        <div className="w-8 h-8 rounded-modern bg-primary/10 flex items-center justify-center flex-shrink-0">
                           <svg
                             width="16"
                             height="16"
@@ -460,25 +460,25 @@ export default function Navbar({ links, className }: NavbarProps) {
                             />
                           </svg>
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col min-w-0 flex-1">
                           <span className="text-sm font-medium text-foreground">
                             Phone
                           </span>
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-sm text-muted-foreground break-all">
                             +1 (555) 123-4567
                           </span>
                         </div>
                       </div>
 
                       {/* GitHub */}
-                      <div className="flex items-center gap-3 p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift">
-                        <div className="w-8 h-8 rounded-modern bg-primary/10 flex items-center justify-center">
+                      <div className="flex items-start gap-3 p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift">
+                        <div className="w-8 h-8 rounded-modern bg-primary/10 flex items-center justify-center flex-shrink-0">
                           <svg
                             width="16"
                             height="16"
                             viewBox="0 0 24 24"
                             fill="none"
-                            className="text-foreground"
+                            className="text-primary"
                           >
                             <path
                               d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
@@ -489,11 +489,11 @@ export default function Navbar({ links, className }: NavbarProps) {
                             />
                           </svg>
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col min-w-0 flex-1">
                           <span className="text-sm font-medium text-foreground">
                             GitHub
                           </span>
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-sm text-muted-foreground break-all">
                             github.com/ahsanhabib
                           </span>
                         </div>
@@ -501,7 +501,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                     </div>
 
                     <div className="text-center space-y-2">
-                      <div className="text-sm text-muted-foreground font-medium">
+                      <div className="text-sm text-muted-foreground font-medium"></div>
                         © 2025 Ahsan Habib
                       </div>
                       <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
@@ -511,10 +511,9 @@ export default function Navbar({ links, className }: NavbarProps) {
                       </div>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
-          </>
+          </div>
         )}
       </header>
     </>

@@ -366,3 +366,26 @@ p {
 .rounded-modern-lg {
   border-radius: 1rem;
 }
+
+/* Text overflow handling */
+.break-all {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Sidebar specific text handling */
+.mobile-sidebar .contact-card {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.mobile-sidebar .contact-card .text-content {
+  min-width: 0;
+  flex: 1;
+}
