@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { clsx } from "clsx";
 
-// Helper function for conditional classes
+// Helper function for conditional classes - Vercel deployment fix
 const cn = (...inputs: (string | undefined | null | boolean)[]) => clsx(inputs);
 
 export default function BackToTopButton() {
