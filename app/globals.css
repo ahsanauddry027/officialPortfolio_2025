@@ -1,79 +1,99 @@
 @import "tailwindcss";
 
-/* Modern CSS Variables - Inspired by reference portfolio */
+/* Modern CSS Variables - Dark Red Gradient Theme */
 :root {
-  /* Light theme colors */
+  /* Light theme colors with red gradient vibe */
   --background: #ffffff;
-  --foreground: #0a0a0a;
-  --muted: #f5f5f5;
-  --muted-foreground: #737373;
-  --border: #e5e5e5;
-  --accent: #f5f5f5;
-  --accent-foreground: #171717;
-  --primary: #0a0a0a;
+  --foreground: #1a0a0a;
+  --muted: #fef2f2;
+  --muted-foreground: #991b1b;
+  --border: #fecaca;
+  --accent: #fee2e2;
+  --accent-foreground: #7f1d1d;
+  --primary: #dc2626;
   --primary-foreground: #ffffff;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #171717;
+  --secondary: #fef2f2;
+  --secondary-foreground: #991b1b;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --ring: #0a0a0a;
+  --ring: #dc2626;
   --radius: 0.5rem;
+  
+  /* Red gradient variables */
+  --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+  --gradient-secondary: linear-gradient(135deg, #fef2f2 0%, #fee2e2 50%, #fecaca 100%);
+  --gradient-accent: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
 }
 
-/* Dark theme */
+/* Dark theme with red gradient vibe */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     --background: #0a0a0a;
-    --foreground: #ededed;
-    --muted: #262626;
-    --muted-foreground: #a3a3a3;
+    --foreground: #fef2f2;
+    --muted: #1f1f1f;
+    --muted-foreground: #f87171;
     --border: #262626;
-    --accent: #262626;
-    --accent-foreground: #ededed;
-    --primary: #ededed;
-    --primary-foreground: #0a0a0a;
-    --secondary: #262626;
-    --secondary-foreground: #ededed;
+    --accent: #1f1f1f;
+    --accent-foreground: #f87171;
+    --primary: #dc2626;
+    --primary-foreground: #ffffff;
+    --secondary: #1f1f1f;
+    --secondary-foreground: #f87171;
     --destructive: #ef4444;
     --destructive-foreground: #ffffff;
-    --ring: #ededed;
+    --ring: #dc2626;
+    
+    /* Dark red gradient variables */
+    --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+    --gradient-secondary: linear-gradient(135deg, #1f1f1f 0%, #262626 50%, #404040 100%);
+    --gradient-accent: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
   }
 }
 
-/* Explicit dark theme */
+/* Explicit dark theme with red gradient */
 html[data-theme="dark"] {
   --background: #0a0a0a;
-  --foreground: #ededed;
-  --muted: #262626;
-  --muted-foreground: #a3a3a3;
+  --foreground: #fef2f2;
+  --muted: #1f1f1f;
+  --muted-foreground: #f87171;
   --border: #262626;
-  --accent: #262626;
-  --accent-foreground: #ededed;
-  --primary: #ededed;
-  --primary-foreground: #0a0a0a;
-  --secondary: #262626;
-  --secondary-foreground: #ededed;
+  --accent: #1f1f1f;
+  --accent-foreground: #f87171;
+  --primary: #dc2626;
+  --primary-foreground: #ffffff;
+  --secondary: #1f1f1f;
+  --secondary-foreground: #f87171;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --ring: #ededed;
+  --ring: #dc2626;
+  
+  /* Dark red gradient variables */
+  --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+  --gradient-secondary: linear-gradient(135deg, #1f1f1f 0%, #262626 50%, #404040 100%);
+  --gradient-accent: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
 }
 
-/* Explicit light theme */
+/* Explicit light theme with red gradient */
 html[data-theme="light"] {
   --background: #ffffff;
-  --foreground: #0a0a0a;
-  --muted: #f5f5f5;
-  --muted-foreground: #737373;
-  --border: #e5e5e5;
-  --accent: #f5f5f5;
-  --accent-foreground: #171717;
-  --primary: #0a0a0a;
+  --foreground: #1a0a0a;
+  --muted: #fef2f2;
+  --muted-foreground: #991b1b;
+  --border: #fecaca;
+  --accent: #fee2e2;
+  --accent-foreground: #7f1d1d;
+  --primary: #dc2626;
   --primary-foreground: #ffffff;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #171717;
+  --secondary: #fef2f2;
+  --secondary-foreground: #991b1b;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --ring: #0a0a0a;
+  --ring: #dc2626;
+  
+  /* Light red gradient variables */
+  --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+  --gradient-secondary: linear-gradient(135deg, #fef2f2 0%, #fee2e2 50%, #fecaca 100%);
+  --gradient-accent: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
 }
 
 /* Base styles */
@@ -325,9 +345,32 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Modern gradient backgrounds */
+/* Modern gradient backgrounds with red theme */
 .gradient-bg {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: var(--gradient-primary);
+}
+
+.gradient-bg-secondary {
+  background: var(--gradient-secondary);
+}
+
+.gradient-bg-accent {
+  background: var(--gradient-accent);
+}
+
+/* Red gradient text */
+.text-gradient-red {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Red gradient borders */
+.border-gradient-red {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+              var(--gradient-primary) border-box;
 }
 
 /* Smooth hover effects */
@@ -350,12 +393,30 @@ p {
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Text gradient */
+/* Text gradient with red theme */
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--muted-foreground));
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Red glow effects */
+.red-glow {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+.red-glow-lg {
+  box-shadow: 0 0 40px rgba(220, 38, 38, 0.4);
+}
+
+/* Red gradient shadows */
+.shadow-red {
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1), 0 2px 4px -1px rgba(220, 38, 38, 0.06);
+}
+
+.shadow-red-lg {
+  box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.1), 0 4px 6px -2px rgba(220, 38, 38, 0.05);
 }
 
 /* Modern border radius */

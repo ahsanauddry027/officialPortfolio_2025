@@ -184,7 +184,7 @@ export default function Navbar({ links, className }: NavbarProps) {
         <div className="max-w-6xl mx-auto px-3 sm:px-6 md:px-16 lg:px-24 xl:px-32 h-14 sm:h-16 flex items-center justify-between navbar-mobile-optimized">
           <a
             href="#home"
-            className="text-lg sm:text-xl font-bold transition-all duration-300 hover-lift text-foreground"
+            className="text-lg sm:text-xl font-bold transition-all duration-300 hover-lift text-gradient-red"
           >
             AH
           </a>
@@ -291,11 +291,11 @@ export default function Navbar({ links, className }: NavbarProps) {
                 pointerEvents: mobileOpen ? "auto" : "none",
               }}
             >
-              {/* Subtle background pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10" />
-                <div className="absolute top-1/4 right-0 w-32 h-32 bg-gradient-to-br from-indigo-500/5 to-transparent rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 left-0 w-24 h-24 bg-gradient-to-tr from-purple-500/5 to-transparent rounded-full blur-2xl" />
+              {/* Red gradient background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/20 via-transparent to-red-600/15" />
+                <div className="absolute top-1/4 right-0 w-32 h-32 bg-gradient-to-br from-red-400/10 to-transparent rounded-full blur-3xl" />
+                <div className="absolute bottom-1/4 left-0 w-24 h-24 bg-gradient-to-tr from-red-500/10 to-transparent rounded-full blur-2xl" />
               </div>
 
               {/* Grid pattern overlay */}
@@ -312,7 +312,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                 {/* Sidebar header */}
                 <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border bg-muted/50 flex-shrink-0 min-h-[80px] sm:min-h-[96px]">
                   <div className="flex items-center gap-4 flex-1">
-                    <div className="w-12 h-12 rounded-modern bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-modern hover-lift">
+                    <div className="w-12 h-12 rounded-modern gradient-bg text-primary-foreground flex items-center justify-center font-bold text-lg shadow-red hover-lift red-glow">
                       AH
                     </div>
                     <div className="flex flex-col">
@@ -380,8 +380,8 @@ export default function Navbar({ links, className }: NavbarProps) {
                             className={cn(
                               "w-2 h-2 rounded-full transition-all duration-300",
                               isActive
-                                ? "bg-primary scale-100"
-                                : "bg-muted-foreground scale-75 group-hover:scale-100 group-hover:bg-primary"
+                                ? "gradient-bg scale-100 red-glow"
+                                : "bg-muted-foreground scale-75 group-hover:scale-100 group-hover:gradient-bg"
                             )}
                           />
                           <span className="tracking-wide">{link.label}</span>
@@ -389,7 +389,7 @@ export default function Navbar({ links, className }: NavbarProps) {
 
                         {/* Active indicator */}
                         {isActive && (
-                          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                          <div className="w-2 h-2 rounded-full gradient-bg animate-pulse red-glow" />
                         )}
                       </a>
                     );
@@ -501,13 +501,14 @@ export default function Navbar({ links, className }: NavbarProps) {
                     </div>
 
                     <div className="text-center space-y-2">
-                      <div className="text-sm text-muted-foreground font-medium"></div>
-                      © 2025 Ahsan Habib
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-                      <div className="w-1 h-1 rounded-full bg-primary" />
-                      <span>Portfolio</span>
-                      <div className="w-1 h-1 rounded-full bg-primary" />
+                      <div className="text-sm text-muted-foreground font-medium">
+                        © 2025 Ahsan Habib
+                      </div>
+                      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                        <div className="w-1 h-1 rounded-full gradient-bg" />
+                        <span>Portfolio</span>
+                        <div className="w-1 h-1 rounded-full gradient-bg" />
+                      </div>
                     </div>
                   </div>
                 </div>
