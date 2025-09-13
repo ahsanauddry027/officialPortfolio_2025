@@ -633,6 +633,17 @@ p {
   animation: slideInFromBottom 0.5s ease-out;
 }
 
+/* Mobile-specific styles for back to top button */
+@media (max-width: 768px) {
+  .back-to-top-button {
+    /* Ensure button is visible on mobile */
+    position: fixed !important;
+    z-index: 9999 !important;
+    /* Add some margin from screen edges */
+    margin: 16px !important;
+  }
+}
+
 @keyframes slideInFromBottom {
   0% {
     opacity: 0;

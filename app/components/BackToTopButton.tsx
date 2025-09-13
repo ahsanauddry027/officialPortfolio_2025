@@ -12,19 +12,25 @@ export default function BackToTopButton() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Show button when user scrolls down to footer area (last 30% of page)
+      // Show button when user scrolls down to footer area
       const scrollHeight = document.documentElement.scrollHeight;
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
       const clientHeight = document.documentElement.clientHeight;
 
-      // Show button when scrolled past 70% of the page height
+      // Show button earlier on mobile devices (60% vs 70% on desktop)
+      const isMobile = window.innerWidth <= 768;
+      const threshold = isMobile ? 0.6 : 0.7;
       const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
-      setIsVisible(scrollPercentage > 0.7);
+      setIsVisible(scrollPercentage > threshold);
     };
 
     window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("resize", toggleVisibility); // Recalculate on resize
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("resize", toggleVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -51,22 +57,23 @@ export default function BackToTopButton() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        "fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full bg-red-primary text-white shadow-red-lg hover:bg-red-secondary transition-all duration-300 ease-out group",
+        "fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[9999] w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-red-primary text-white shadow-red-lg hover:bg-red-secondary transition-all duration-300 ease-out group",
         "hover:scale-110 hover:shadow-red-lg hover:shadow-2xl",
         "focus:outline-none focus:ring-4 focus:ring-red-primary/50",
-        "back-to-top-button"
+        "back-to-top-button",
+        "md:bottom-6 md:right-6"
       )}
       aria-label="Back to top"
     >
       {/* Animated arrow icon */}
       <div className="relative w-full h-full flex items-center justify-center">
         <svg
-          width="24"
-          height="24"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           className={cn(
-            "transition-all duration-300 ease-out",
+            "transition-all duration-300 ease-out sm:w-6 sm:h-6",
             isHovered ? "transform -translate-y-1" : "transform translate-y-0"
           )}
         >
