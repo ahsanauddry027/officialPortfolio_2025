@@ -175,10 +175,6 @@ export default function Navbar({ links, className }: NavbarProps) {
 
   return (
     <>
-      {/* Blur overlay for main content when sidebar is open */}
-      {mounted && mobileOpen && (
-        <div className="md:hidden fixed inset-0 z-20 bg-black/30 backdrop-blur-md pointer-events-none transition-all duration-300" />
-      )}
 
       <header
         className={cn(
@@ -288,14 +284,14 @@ export default function Navbar({ links, className }: NavbarProps) {
         {mounted && mobileOpen && (
           <>
             <div
-              className="md:hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-100 pointer-events-auto"
+              className="md:hidden fixed inset-0 z-[9998] bg-black/50 transition-opacity duration-300 opacity-100 pointer-events-auto"
               onClick={() => setMobileOpen(false)}
             />
 
             {/* Mobile sidebar */}
             <div
               className={cn(
-                "md:hidden fixed top-0 left-0 h-full w-[90vw] max-w-[320px] bg-background border-r border-foreground/15 shadow-2xl shadow-foreground/10 transition-all duration-500 ease-out z-60 mobile-sidebar-375",
+                "md:hidden fixed top-0 left-0 h-full w-[90vw] max-w-[320px] bg-background border-r border-foreground/15 shadow-2xl shadow-foreground/10 transition-all duration-500 ease-out z-[9999] mobile-sidebar-375",
                 mobileOpen
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-full opacity-0"

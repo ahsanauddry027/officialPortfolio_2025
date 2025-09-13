@@ -21,7 +21,7 @@ export default function Home() {
       <main
         className={cn(
           "relative px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 py-12 sm:py-16 md:py-24 transition-all duration-300",
-          mobileOpen && "md:hidden blur-sm"
+          mobileOpen && "md:hidden"
         )}
       >
         <Hero />
@@ -43,7 +43,7 @@ export default function Home() {
       <footer
         className={cn(
           "px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 py-8 sm:py-10 text-sm text-foreground/60 transition-all duration-300",
-          mobileOpen && "md:hidden blur-sm"
+          mobileOpen && "md:hidden"
         )}
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
