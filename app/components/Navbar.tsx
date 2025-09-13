@@ -275,9 +275,7 @@ export default function Navbar({ links, className }: NavbarProps) {
             <div
               className={cn(
                 "md:hidden fixed inset-0 z-[9998] bg-black/50 transition-all duration-500 ease-out pointer-events-auto",
-                mobileOpen
-                  ? "opacity-100"
-                  : "opacity-0 pointer-events-none"
+                mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
               )}
               onClick={() => setMobileOpen(false)}
             />
@@ -285,7 +283,7 @@ export default function Navbar({ links, className }: NavbarProps) {
             {/* Mobile sidebar */}
             <div
               className={cn(
-                "md:hidden fixed top-0 left-0 h-full w-[90vw] max-w-[320px] mobile-sidebar shadow-modern-lg transition-all duration-700 ease-out z-[9999] mobile-sidebar-375",
+                "md:hidden fixed top-0 left-0 h-full w-[88vw] max-w-[320px] mobile-sidebar shadow-modern-lg transition-all duration-700 ease-out z-[9999] mobile-sidebar-375",
                 mobileOpen
                   ? "translate-x-0 opacity-100 scale-100"
                   : "-translate-x-full opacity-0 scale-95"
