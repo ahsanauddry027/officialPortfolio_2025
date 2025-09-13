@@ -57,7 +57,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05 }}
-          className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-gradient-red-dark font-[var(--font-display)]"
+          className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-gradient-red-dark font-[var(--font-elegant)]"
         >
           Ahsan Habib
         </motion.h1>
