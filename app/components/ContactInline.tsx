@@ -2,8 +2,51 @@
 
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
+import { useState } from "react";
 
 export default function ContactInline() {
+  const [emailCopied, setEmailCopied] = useState(false);
+  const [phoneCopied, setPhoneCopied] = useState(false);
+
+  // Copy email function
+  const copyEmail = async () => {
+    const email = "ahsanauddry.ndc@gmail.com";
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = email;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    }
+  };
+
+  // Copy phone function
+  const copyPhone = async () => {
+    const phone = "+8801300-502013";
+    try {
+      await navigator.clipboard.writeText(phone);
+      setPhoneCopied(true);
+      setTimeout(() => setPhoneCopied(false), 2000);
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = phone;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      setPhoneCopied(true);
+      setTimeout(() => setPhoneCopied(false), 2000);
+    }
+  };
   return (
     <section
       id="contact"
@@ -110,7 +153,7 @@ export default function ContactInline() {
                     />
                   </svg>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col flex-1">
                   <span
                     className="text-sm font-medium text-foreground/80"
                     style={{
@@ -131,6 +174,62 @@ export default function ContactInline() {
                     ahsanauddry.ndc@gmail.com
                   </a>
                 </div>
+                <button
+                  onClick={copyEmail}
+                  className="group relative p-2 rounded-md hover:bg-foreground/10 transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                  aria-label="Copy email address"
+                >
+                  {emailCopied ? (
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="text-green-600 dark:text-green-400"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="text-foreground/40 group-hover:text-foreground/80 transition-colors"
+                    >
+                      <rect
+                        x="9"
+                        y="9"
+                        width="13"
+                        height="13"
+                        rx="2"
+                        ry="2"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+
+                  {/* Tooltip */}
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                    {emailCopied ? "Copied!" : "Copy email"}
+                  </div>
+                </button>
               </div>
 
               {/* Phone */}
@@ -152,7 +251,7 @@ export default function ContactInline() {
                     />
                   </svg>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col flex-1">
                   <span
                     className="text-sm font-medium text-foreground/80"
                     style={{
@@ -169,9 +268,65 @@ export default function ContactInline() {
                         "var(--font-roboto), var(--font-inter), 'Roboto', 'Inter', sans-serif",
                     }}
                   >
-                    +1 (555) 123-4567
+                    +8801300-502013
                   </span>
                 </div>
+                <button
+                  onClick={copyPhone}
+                  className="group relative p-2 rounded-md hover:bg-foreground/10 transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500/50"
+                  aria-label="Copy phone number"
+                >
+                  {phoneCopied ? (
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="text-green-600 dark:text-green-400"
+                    >
+                      <path
+                        d="M20 6L9 17l-5-5"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="text-foreground/40 group-hover:text-foreground/80 transition-colors"
+                    >
+                      <rect
+                        x="9"
+                        y="9"
+                        width="13"
+                        height="13"
+                        rx="2"
+                        ry="2"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+
+                  {/* Tooltip */}
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                    {phoneCopied ? "Copied!" : "Copy phone"}
+                  </div>
+                </button>
               </div>
 
               {/* GitHub */}

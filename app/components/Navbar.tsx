@@ -20,8 +20,10 @@ type NavbarProps = {
 
 export default function Navbar({ links, className }: NavbarProps) {
   const { mobileOpen, setMobileOpen } = useMobileSidebar();
+  const [isClosing, setIsClosing] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [sidebarScrollPosition, setSidebarScrollPosition] = useState(0);
+  const [emailCopied, setEmailCopied] = useState(false);
   const sidebarNavRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -46,6 +48,26 @@ export default function Navbar({ links, className }: NavbarProps) {
   );
   const [pathname, setPathname] = useState<string>("/");
 
+  // Copy email function
+  const copyEmail = async () => {
+    const email = "ahsanauddry.ndc@gmail.com";
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = email;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    }
+  };
+
   useEffect(() => {
     if (sectionIds.length === 0) return;
 
@@ -61,6 +83,9 @@ export default function Navbar({ links, className }: NavbarProps) {
       };
 
       const handler: IntersectionObserverCallback = (entries) => {
+        // Don't update active section when sidebar is closing
+        if (isClosing) return;
+
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveId(entry.target.id);
@@ -86,7 +111,7 @@ export default function Navbar({ links, className }: NavbarProps) {
         observer.disconnect();
       }
     };
-  }, [sectionIds]);
+  }, [sectionIds, isClosing]);
 
   useEffect(() => {
     const onRoute = () => setMobileOpen(false);
@@ -302,7 +327,13 @@ export default function Navbar({ links, className }: NavbarProps) {
                     transitionDelay: mobileOpen ? "100ms" : "0ms",
                   }}
                 >
-                  <div className="flex items-center gap-3 flex-1">
+                  <div
+                    className="flex items-center gap-3 flex-1"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                  >
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-modern bg-red-primary text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-red hover-lift-enhanced red-glow-dark transition-all duration-300 hover:scale-105">
                       AH
                     </div>
@@ -320,24 +351,61 @@ export default function Navbar({ links, className }: NavbarProps) {
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
+                      e.nativeEvent?.stopImmediatePropagation();
+
+                      // Set closing state to prevent navigation
+                      setIsClosing(true);
+
+                      // Close sidebar without triggering navigation
                       setMobileOpen(false);
+
+                      // Reset closing state after animation completes
+                      setTimeout(() => {
+                        setIsClosing(false);
+                        (e.target as HTMLElement)?.blur?.();
+                      }, 700); // Match sidebar animation duration
                     }}
-                    className="p-2 flex-shrink-0 ml-4 rounded-modern hover:bg-accent transition-all duration-300 hover-lift focus-ring"
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                    onTouchStart={(e) => {
+                      e.stopPropagation();
+                    }}
+                    className="group relative p-3 flex-shrink-0 ml-4 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border border-gray-200/50 dark:border-gray-700/50 hover:border-red-primary/30 transition-all duration-300 hover-lift focus-ring hover:shadow-lg hover:scale-105 active:scale-95"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
+                      backdropFilter: "blur(10px)",
+                    }}
                   >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="stroke-current text-muted-foreground hover:text-foreground transition-colors duration-300"
-                    >
-                      <path
-                        d="M18 6L6 18M6 6l12 12"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    {/* Animated background glow on hover */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Cross icon with enhanced styling */}
+                    <div className="relative">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        className="stroke-current text-gray-600 dark:text-gray-400 group-hover:text-red-500 transition-all duration-300 group-hover:rotate-90"
+                      >
+                        <path
+                          d="M18 6L6 18M6 6l12 12"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="group-hover:drop-shadow-sm"
+                        />
+                      </svg>
+
+                      {/* Subtle inner glow effect */}
+                      <div className="absolute inset-0 rounded-full bg-red-500/10 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
+                    </div>
+
+                    {/* Modern shine effect */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
                   </button>
                 </div>
 
@@ -450,9 +518,65 @@ export default function Navbar({ links, className }: NavbarProps) {
                             Email
                           </span>
                           <span className="text-xs sm:text-sm text-muted-foreground break-all">
-                            ahsan.habib@example.com
+                            ahsanauddry.ndc@gmail.com
                           </span>
                         </div>
+                        <button
+                          onClick={copyEmail}
+                          className="group relative p-1.5 rounded-md hover:bg-foreground/10 transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-primary/50"
+                          aria-label="Copy email address"
+                        >
+                          {emailCopied ? (
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              className="text-green-600 dark:text-green-400"
+                            >
+                              <path
+                                d="M20 6L9 17l-5-5"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          ) : (
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              className="text-muted-foreground group-hover:text-foreground transition-colors"
+                            >
+                              <rect
+                                x="9"
+                                y="9"
+                                width="13"
+                                height="13"
+                                rx="2"
+                                ry="2"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          )}
+
+                          {/* Tooltip */}
+                          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+                            {emailCopied ? "Copied!" : "Copy email"}
+                          </div>
+                        </button>
                       </div>
                     </div>
 

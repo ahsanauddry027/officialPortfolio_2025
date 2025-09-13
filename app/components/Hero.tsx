@@ -1,20 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 
 export default function Hero() {
   const roles = useMemo(
     () => [
-      "Full-Stack Developer",
-      "UI/UX Enthusiast",
-      "Open Source Contributor",
+      "FULL-STACK DEVELOPER",
+      "UI/UX ENTHUSIAST",
+      "OPEN SOURCE CONTRIBUTOR",
     ],
     []
   );
   const [roleIndex, setRoleIndex] = useState(0);
   const [display, setDisplay] = useState("");
   const [deleting, setDeleting] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const full = roles[roleIndex % roles.length] + ".....";
@@ -39,12 +42,191 @@ export default function Hero() {
     return () => clearTimeout(t);
   }, [display, deleting, roleIndex, roles]);
 
+  // Mouse tracking effect with smoother updates
+  useEffect(() => {
+    let animationFrameId: number;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (sectionRef.current && isHovering) {
+        // Cancel previous animation frame to prevent queuing
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+
+        // Use requestAnimationFrame for smoother updates
+        animationFrameId = requestAnimationFrame(() => {
+          const rect = sectionRef.current!.getBoundingClientRect();
+          setMousePosition({
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+          });
+        });
+      }
+    };
+
+    const handleMouseEnter = () => setIsHovering(true);
+    const handleMouseLeave = () => {
+      setIsHovering(false);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+
+    const section = sectionRef.current;
+    if (section) {
+      section.addEventListener("mousemove", handleMouseMove, { passive: true });
+      section.addEventListener("mouseenter", handleMouseEnter);
+      section.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (section) {
+        section.removeEventListener("mousemove", handleMouseMove);
+        section.removeEventListener("mouseenter", handleMouseEnter);
+        section.removeEventListener("mouseleave", handleMouseLeave);
+      }
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, [isHovering]);
+
   return (
     <section
       id="home"
-      className="relative min-h-[70svh] sm:min-h-[75svh] md:min-h-[88svh] flex items-center border border-border rounded-modern-lg px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 transition-all duration-300 hover:border-red-primary hover:red-glow-dark-lg hover:scale-[1.01] cursor-pointer group bg-background"
+      ref={sectionRef}
+      className="relative min-h-[70svh] sm:min-h-[75svh] md:min-h-[88svh] flex items-center border border-border rounded-modern-lg px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 transition-all duration-300 hover:border-red-primary hover:red-glow-dark-lg hover:scale-[1.01] cursor-pointer group bg-background overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto w-full">
+      {/* Animated Glowy Border - Multiple layers for intense glow */}
+      <div
+        className="absolute inset-0 rounded-modern-lg pointer-events-none"
+        style={{
+          background: `conic-gradient(
+            from 0deg,
+            transparent,
+            transparent,
+            rgba(220, 38, 38, 1),
+            rgba(220, 38, 38, 0.8),
+            rgba(220, 38, 38, 0.6),
+            rgba(220, 38, 38, 0.4),
+            transparent,
+            transparent
+          )`,
+          animation:
+            "borderGlowCircular 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+          transformOrigin: "center",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Second glow layer for more intensity */}
+      <div
+        className="absolute inset-[-2px] rounded-modern-lg pointer-events-none"
+        style={{
+          background: `conic-gradient(
+            from 0deg,
+            transparent,
+            transparent,
+            rgba(220, 38, 38, 0.7),
+            rgba(220, 38, 38, 0.5),
+            rgba(220, 38, 38, 0.3),
+            transparent,
+            transparent
+          )`,
+          animation:
+            "borderGlowCircular 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+          transformOrigin: "center",
+          filter: "blur(3px)",
+          zIndex: 0,
+        }}
+      />
+
+      {/* Third outer glow layer */}
+      <div
+        className="absolute inset-[-4px] rounded-modern-lg pointer-events-none"
+        style={{
+          background: `conic-gradient(
+            from 0deg,
+            transparent,
+            transparent,
+            rgba(220, 38, 38, 0.4),
+            rgba(220, 38, 38, 0.3),
+            rgba(220, 38, 38, 0.2),
+            transparent,
+            transparent
+          )`,
+          animation:
+            "borderGlowCircular 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+          transformOrigin: "center",
+          filter: "blur(6px)",
+          zIndex: -1,
+        }}
+      />
+
+      {/* Inner content mask to hide the animated border inside */}
+      <div
+        className="absolute inset-[2px] rounded-modern-lg bg-background pointer-events-none"
+        style={{ zIndex: 2 }}
+      />
+      {/* Cursor follower glow - Multiple layers for better visibility */}
+      {isHovering && (
+        <>
+          {/* Large background glow */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              left: mousePosition.x - 200,
+              top: mousePosition.y - 200,
+              width: "400px",
+              height: "400px",
+              background: `radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, rgba(220, 38, 38, 0.05) 50%, transparent 80%)`,
+              borderRadius: "50%",
+              filter: "blur(30px)",
+              zIndex: 2,
+              transform: "translate3d(0, 0, 0)",
+              willChange: "transform",
+              transition: "all 200ms cubic-bezier(0.25, 0.8, 0.25, 1)",
+            }}
+          />
+
+          {/* Medium glow */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              left: mousePosition.x - 100,
+              top: mousePosition.y - 100,
+              width: "200px",
+              height: "200px",
+              background: `radial-gradient(circle, rgba(220, 38, 38, 0.4) 0%, rgba(220, 38, 38, 0.15) 40%, transparent 70%)`,
+              borderRadius: "50%",
+              filter: "blur(15px)",
+              zIndex: 3,
+              transform: "translate3d(0, 0, 0)",
+              willChange: "transform",
+              transition: "all 150ms cubic-bezier(0.25, 0.8, 0.25, 1)",
+            }}
+          />
+
+          {/* Inner bright glow */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              left: mousePosition.x - 50,
+              top: mousePosition.y - 50,
+              width: "100px",
+              height: "100px",
+              background: `radial-gradient(circle, rgba(220, 38, 38, 0.6) 0%, rgba(220, 38, 38, 0.3) 30%, transparent 60%)`,
+              borderRadius: "50%",
+              filter: "blur(8px)",
+              zIndex: 4,
+              transform: "translate3d(0, 0, 0)",
+              willChange: "transform",
+              transition: "all 100ms cubic-bezier(0.25, 0.8, 0.25, 1)",
+            }}
+          />
+        </>
+      )}
+      <div className="max-w-6xl mx-auto w-full relative z-20">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,7 +248,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.12 }}
-          className="mt-4 text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl font-[var(--font-roboto)]"
+          className="mt-4 text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl font-[var(--font-roboto)] uppercase tracking-wide"
         >
           <span className="text-foreground">{display}</span>
           <span className="inline-block w-[1ch] -mb-[2px] animate-pulse">
