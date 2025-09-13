@@ -57,7 +57,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05 }}
-          className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-gradient-red-dark font-[var(--font-elegant)]"
+          className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-gradient-red-dark"
+          style={{ fontFamily: "var(--font-elegant)" }}
         >
           Ahsan Habib
         </motion.h1>
@@ -65,7 +66,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.12 }}
-          className="mt-4 text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl"
+          className="mt-4 text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl font-[var(--font-roboto)]"
         >
           <span className="text-foreground">{display}</span>
           <span className="inline-block w-[1ch] -mb-[2px] animate-pulse">
