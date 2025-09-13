@@ -317,7 +317,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                 {/* Sidebar header */}
                 <div
                   className={cn(
-                    "flex items-center justify-between p-4 sm:p-6 border-b border-border bg-muted/50 flex-shrink-0 min-h-[80px] sm:min-h-[96px] transition-all duration-500 ease-out",
+                    "flex items-center justify-between p-3 sm:p-6 border-b border-border bg-muted/50 flex-shrink-0 min-h-[70px] sm:min-h-[96px] transition-all duration-500 ease-out",
                     mobileOpen
                       ? "translate-y-0 opacity-100"
                       : "translate-y-4 opacity-0"
@@ -326,15 +326,15 @@ export default function Navbar({ links, className }: NavbarProps) {
                     transitionDelay: mobileOpen ? "100ms" : "0ms",
                   }}
                 >
-                  <div className="flex items-center gap-4 flex-1">
-                    <div className="w-12 h-12 rounded-modern bg-red-primary text-white flex items-center justify-center font-bold text-lg shadow-red hover-lift-enhanced red-glow-dark transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center gap-3 flex-1">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-modern bg-red-primary text-white flex items-center justify-center font-bold text-base sm:text-lg shadow-red hover-lift-enhanced red-glow-dark transition-all duration-300 hover:scale-105">
                       AH
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-lg font-bold text-foreground tracking-wide">
+                      <span className="text-base sm:text-lg font-bold text-foreground tracking-wide">
                         Ahsan Habib
                       </span>
-                      <span className="text-sm text-muted-foreground font-medium">
+                      <span className="text-xs sm:text-sm text-muted-foreground font-medium">
                         Portfolio
                       </span>
                     </div>
@@ -369,7 +369,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                 <nav
                   ref={sidebarNavRef}
                   className={cn(
-                    "flex-1 overflow-y-auto p-4 sm:p-6 flex flex-col gap-2 sm:gap-3 min-h-0 max-h-[calc(100vh-280px)] sm:max-h-[calc(100vh-320px)] mobile-nav-height transition-all duration-500 ease-out",
+                    "flex-1 overflow-y-auto p-3 sm:p-6 flex flex-col gap-1.5 sm:gap-3 min-h-0 max-h-[calc(100vh-240px)] sm:max-h-[calc(100vh-320px)] mobile-nav-height transition-all duration-500 ease-out",
                     mobileOpen
                       ? "translate-y-0 opacity-100"
                       : "translate-y-4 opacity-0"
@@ -389,7 +389,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                         key={link.href}
                         href={link.href}
                         className={cn(
-                          "group flex items-center px-4 py-3 rounded-modern transition-all duration-300 ease-out hover-lift text-base font-medium relative",
+                          "group flex items-center px-3 py-2.5 sm:px-4 sm:py-3 rounded-modern transition-all duration-300 ease-out hover-lift text-sm sm:text-base font-medium relative",
                           isActive
                             ? "text-foreground bg-accent shadow-modern"
                             : "text-muted-foreground hover:text-foreground hover:bg-accent"
@@ -403,10 +403,10 @@ export default function Navbar({ links, className }: NavbarProps) {
                         }}
                         onClick={() => setMobileOpen(false)}
                       >
-                        <span className="flex-1 flex items-center gap-3">
+                        <span className="flex-1 flex items-center gap-2.5 sm:gap-3">
                           <div
                             className={cn(
-                              "w-2 h-2 rounded-full transition-all duration-300",
+                              "w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300",
                               isActive
                                 ? "bg-red-primary scale-100 red-glow-dark"
                                 : "bg-muted-foreground scale-75 group-hover:scale-100 group-hover:bg-red-primary"
@@ -427,7 +427,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                 {/* Sidebar footer */}
                 <div
                   className={cn(
-                    "flex-shrink-0 p-6 border-t border-border bg-muted/30 mobile-sidebar-footer transition-all duration-500 ease-out",
+                    "flex-shrink-0 p-4 sm:p-6 border-t border-border bg-muted/30 mobile-sidebar-footer transition-all duration-500 ease-out",
                     mobileOpen
                       ? "translate-y-0 opacity-100"
                       : "translate-y-4 opacity-0"
@@ -436,22 +436,22 @@ export default function Navbar({ links, className }: NavbarProps) {
                     transitionDelay: mobileOpen ? "400ms" : "0ms",
                   }}
                 >
-                  <div className="space-y-4 sm:space-y-6">
+                  <div className="space-y-3 sm:space-y-6">
                     {/* Contact Credentials */}
-                    <div className="space-y-2">
-                      <h3 className="text-lg font-bold text-foreground">
+                    <div className="space-y-1.5">
+                      <h3 className="text-base sm:text-lg font-bold text-foreground">
                         Contact Me
                       </h3>
 
                       {/* Email */}
-                      <div className="flex items-start gap-3 p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift-enhanced">
-                        <div className="w-8 h-8 rounded-modern bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-modern bg-accent hover:bg-accent/80 transition-all duration-300 hover-lift-enhanced">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-modern bg-primary/10 flex items-center justify-center flex-shrink-0">
                           <svg
-                            width="16"
-                            height="16"
+                            width="14"
+                            height="14"
                             viewBox="0 0 24 24"
                             fill="none"
-                            className="text-primary"
+                            className="text-primary sm:w-4 sm:h-4"
                           >
                             <path
                               d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
@@ -470,21 +470,21 @@ export default function Navbar({ links, className }: NavbarProps) {
                           </svg>
                         </div>
                         <div className="flex flex-col min-w-0 flex-1">
-                          <span className="text-sm font-medium text-foreground">
+                          <span className="text-xs sm:text-sm font-medium text-foreground">
                             Email
                           </span>
-                          <span className="text-sm text-muted-foreground break-all">
+                          <span className="text-xs sm:text-sm text-muted-foreground break-all">
                             ahsan.habib@example.com
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="text-center space-y-2">
-                      <div className="text-sm text-muted-foreground font-medium">
+                    <div className="text-center space-y-1.5">
+                      <div className="text-xs sm:text-sm text-muted-foreground font-medium">
                         © 2025 Ahsan Habib
                       </div>
-                      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                      <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
                         <div className="w-1 h-1 rounded-full bg-red-primary" />
                         <span>Portfolio</span>
                         <div className="w-1 h-1 rounded-full bg-red-primary" />

@@ -468,6 +468,42 @@ p {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+  
+  /* iPhone 14 specific sidebar optimizations */
+  .mobile-sidebar .sidebar-header {
+    min-height: 70px;
+    padding: 12px 16px;
+  }
+  
+  .mobile-sidebar .sidebar-nav {
+    padding: 12px 16px;
+    gap: 6px;
+  }
+  
+  .mobile-sidebar .sidebar-footer {
+    padding: 16px;
+  }
+  
+  /* Optimize navigation link spacing for iPhone 14 */
+  .mobile-sidebar nav a {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  /* Contact section optimization */
+  .mobile-sidebar .contact-section {
+    gap: 8px;
+  }
+  
+  .mobile-sidebar .contact-section h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  
+  .mobile-sidebar .contact-card {
+    padding: 10px;
+    gap: 10px;
+  }
 }
 
 @media (max-width: 375px) {
