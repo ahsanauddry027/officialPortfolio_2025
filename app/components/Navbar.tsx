@@ -502,15 +502,15 @@ export default function Navbar({ links, className }: NavbarProps) {
 
                     <div className="text-center space-y-2">
                       <div className="text-sm text-muted-foreground font-medium"></div>
-                        © 2025 Ahsan Habib
-                      </div>
-                      <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-                        <div className="w-1 h-1 rounded-full bg-primary" />
-                        <span>Portfolio</span>
-                        <div className="w-1 h-1 rounded-full bg-primary" />
-                      </div>
+                      © 2025 Ahsan Habib
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                      <div className="w-1 h-1 rounded-full bg-primary" />
+                      <span>Portfolio</span>
+                      <div className="w-1 h-1 rounded-full bg-primary" />
                     </div>
                   </div>
+                </div>
               </div>
             </div>
           </div>
