@@ -17,6 +17,8 @@ export default function Home() {
 
   return (
     <div className="font-sans min-h-screen bg-background relative">
+      {/* Dark red accent overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-red-50/10 to-transparent pointer-events-none" />
       {/* Navbar moved to RootLayout for all pages */}
       <main
         className={cn(

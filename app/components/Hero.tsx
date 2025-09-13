@@ -61,7 +61,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.05 }}
-          className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-gradient font-[var(--font-display)]"
+          className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-gradient-red-dark font-[var(--font-display)]"
         >
           Ahsan Habib
         </motion.h1>
@@ -84,7 +84,7 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="group h-10 sm:h-11 px-4 sm:px-6 inline-flex items-center justify-center rounded-full relative overflow-hidden text-sm font-medium gradient-bg text-primary-foreground hover-lift shadow-modern"
+            className="group h-10 sm:h-11 px-4 sm:px-6 inline-flex items-center justify-center rounded-full relative overflow-hidden text-sm font-medium bg-red-primary text-white hover:bg-red-secondary hover-lift shadow-red red-glow-dark"
           >
             <span className="relative">Contact Me</span>
           </a>
@@ -92,7 +92,7 @@ export default function Hero() {
             href="https://github.com/ahsanauddry027"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-10 sm:h-11 px-4 sm:px-6 inline-flex items-center justify-center rounded-full border border-border text-sm font-medium hover:bg-accent hover-lift transition-all duration-300"
+            className="h-10 sm:h-11 px-4 sm:px-6 inline-flex items-center justify-center rounded-full border border-red-primary text-red-primary text-sm font-medium hover:bg-red-primary hover:text-white hover-lift transition-all duration-300"
           >
             View My Work
           </a>

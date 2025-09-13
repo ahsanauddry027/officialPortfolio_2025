@@ -184,7 +184,7 @@ export default function Navbar({ links, className }: NavbarProps) {
         <div className="max-w-6xl mx-auto px-3 sm:px-6 md:px-16 lg:px-24 xl:px-32 h-14 sm:h-16 flex items-center justify-between navbar-mobile-optimized">
           <a
             href="#home"
-            className="text-lg sm:text-xl font-bold transition-all duration-300 hover-lift text-gradient-red"
+            className="text-lg sm:text-xl font-bold transition-all duration-300 hover-lift text-gradient-red-dark"
           >
             AH
           </a>
@@ -312,7 +312,7 @@ export default function Navbar({ links, className }: NavbarProps) {
                 {/* Sidebar header */}
                 <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border bg-muted/50 flex-shrink-0 min-h-[80px] sm:min-h-[96px]">
                   <div className="flex items-center gap-4 flex-1">
-                    <div className="w-12 h-12 rounded-modern gradient-bg text-primary-foreground flex items-center justify-center font-bold text-lg shadow-red hover-lift red-glow">
+                    <div className="w-12 h-12 rounded-modern bg-red-primary text-white flex items-center justify-center font-bold text-lg shadow-red hover-lift red-glow-dark">
                       AH
                     </div>
                     <div className="flex flex-col">
@@ -380,8 +380,8 @@ export default function Navbar({ links, className }: NavbarProps) {
                             className={cn(
                               "w-2 h-2 rounded-full transition-all duration-300",
                               isActive
-                                ? "gradient-bg scale-100 red-glow"
-                                : "bg-muted-foreground scale-75 group-hover:scale-100 group-hover:gradient-bg"
+                                ? "bg-red-primary scale-100 red-glow-dark"
+                                : "bg-muted-foreground scale-75 group-hover:scale-100 group-hover:bg-red-primary"
                             )}
                           />
                           <span className="tracking-wide">{link.label}</span>
@@ -389,7 +389,7 @@ export default function Navbar({ links, className }: NavbarProps) {
 
                         {/* Active indicator */}
                         {isActive && (
-                          <div className="w-2 h-2 rounded-full gradient-bg animate-pulse red-glow" />
+                          <div className="w-2 h-2 rounded-full bg-red-primary animate-pulse red-glow-dark" />
                         )}
                       </a>
                     );
@@ -505,9 +505,9 @@ export default function Navbar({ links, className }: NavbarProps) {
                         © 2025 Ahsan Habib
                       </div>
                       <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-                        <div className="w-1 h-1 rounded-full gradient-bg" />
+                        <div className="w-1 h-1 rounded-full bg-red-primary" />
                         <span>Portfolio</span>
-                        <div className="w-1 h-1 rounded-full gradient-bg" />
+                        <div className="w-1 h-1 rounded-full bg-red-primary" />
                       </div>
                     </div>
                   </div>

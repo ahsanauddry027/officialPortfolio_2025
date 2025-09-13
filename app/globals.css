@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-/* Modern CSS Variables - Black and White Theme */
+/* Modern CSS Variables - Black and White with Dark Red Accents */
 :root {
-  /* Light theme colors - Black and white */
+  /* Light theme colors - Black and white with dark red accents */
   --background: #ffffff;
   --foreground: #000000;
   --muted: #f8f9fa;
@@ -19,28 +19,41 @@
   --ring: #000000;
   --radius: 0.5rem;
 
-  /* Black and white gradient variables */
+  /* Dark red accent colors */
+  --red-primary: #dc2626;
+  --red-secondary: #b91c1c;
+  --red-accent: #991b1b;
+  --red-light: #fef2f2;
+  --red-muted: #fee2e2;
+
+  /* Black and white gradient variables with dark red accents */
   --gradient-primary: linear-gradient(
     135deg,
     #000000 0%,
     #374151 50%,
-    #6b7280 100%
+    #dc2626 100%
   );
   --gradient-secondary: linear-gradient(
     135deg,
     #f8f9fa 0%,
     #e5e7eb 50%,
-    #d1d5db 100%
+    #fef2f2 100%
   );
   --gradient-accent: linear-gradient(
     135deg,
-    #000000 0%,
-    #374151 50%,
-    #6b7280 100%
+    #dc2626 0%,
+    #b91c1c 50%,
+    #991b1b 100%
+  );
+  --gradient-red-subtle: linear-gradient(
+    135deg,
+    #fef2f2 0%,
+    #fee2e2 50%,
+    #fecaca 100%
   );
 }
 
-/* Dark theme - Black and white */
+/* Dark theme - Black and white with dark red accents */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     --background: #000000;
@@ -58,29 +71,42 @@
     --destructive-foreground: #ffffff;
     --ring: #ffffff;
 
-    /* Dark black and white gradient variables */
+    /* Dark red accent colors for dark theme */
+    --red-primary: #dc2626;
+    --red-secondary: #b91c1c;
+    --red-accent: #991b1b;
+    --red-light: #1f1f1f;
+    --red-muted: #262626;
+
+    /* Dark black and white gradient variables with dark red accents */
     --gradient-primary: linear-gradient(
       135deg,
       #ffffff 0%,
       #d1d5db 50%,
-      #9ca3af 100%
+      #dc2626 100%
     );
     --gradient-secondary: linear-gradient(
       135deg,
       #111111 0%,
       #374151 50%,
-      #6b7280 100%
+      #262626 100%
     );
     --gradient-accent: linear-gradient(
       135deg,
-      #ffffff 0%,
-      #d1d5db 50%,
-      #9ca3af 100%
+      #dc2626 0%,
+      #b91c1c 50%,
+      #991b1b 100%
+    );
+    --gradient-red-subtle: linear-gradient(
+      135deg,
+      #1f1f1f 0%,
+      #262626 50%,
+      #374151 100%
     );
   }
 }
 
-/* Explicit dark theme - Black and white */
+/* Explicit dark theme - Black and white with dark red accents */
 html[data-theme="dark"] {
   --background: #000000;
   --foreground: #ffffff;
@@ -97,28 +123,41 @@ html[data-theme="dark"] {
   --destructive-foreground: #ffffff;
   --ring: #ffffff;
 
-  /* Dark black and white gradient variables */
+  /* Dark red accent colors for dark theme */
+  --red-primary: #dc2626;
+  --red-secondary: #b91c1c;
+  --red-accent: #991b1b;
+  --red-light: #1f1f1f;
+  --red-muted: #262626;
+
+  /* Dark black and white gradient variables with dark red accents */
   --gradient-primary: linear-gradient(
     135deg,
     #ffffff 0%,
     #d1d5db 50%,
-    #9ca3af 100%
+    #dc2626 100%
   );
   --gradient-secondary: linear-gradient(
     135deg,
     #111111 0%,
     #374151 50%,
-    #6b7280 100%
+    #262626 100%
   );
   --gradient-accent: linear-gradient(
     135deg,
-    #ffffff 0%,
-    #d1d5db 50%,
-    #9ca3af 100%
+    #dc2626 0%,
+    #b91c1c 50%,
+    #991b1b 100%
+  );
+  --gradient-red-subtle: linear-gradient(
+    135deg,
+    #1f1f1f 0%,
+    #262626 50%,
+    #374151 100%
   );
 }
 
-/* Explicit light theme - Black and white */
+/* Explicit light theme - Black and white with dark red accents */
 html[data-theme="light"] {
   --background: #ffffff;
   --foreground: #000000;
@@ -135,24 +174,37 @@ html[data-theme="light"] {
   --destructive-foreground: #ffffff;
   --ring: #000000;
 
-  /* Light black and white gradient variables */
+  /* Dark red accent colors for light theme */
+  --red-primary: #dc2626;
+  --red-secondary: #b91c1c;
+  --red-accent: #991b1b;
+  --red-light: #fef2f2;
+  --red-muted: #fee2e2;
+
+  /* Light black and white gradient variables with dark red accents */
   --gradient-primary: linear-gradient(
     135deg,
     #000000 0%,
     #374151 50%,
-    #6b7280 100%
+    #dc2626 100%
   );
   --gradient-secondary: linear-gradient(
     135deg,
     #f8f9fa 0%,
     #e5e7eb 50%,
-    #d1d5db 100%
+    #fef2f2 100%
   );
   --gradient-accent: linear-gradient(
     135deg,
-    #000000 0%,
-    #374151 50%,
-    #6b7280 100%
+    #dc2626 0%,
+    #b91c1c 50%,
+    #991b1b 100%
+  );
+  --gradient-red-subtle: linear-gradient(
+    135deg,
+    #fef2f2 0%,
+    #fee2e2 50%,
+    #fecaca 100%
   );
 }
 
@@ -479,6 +531,56 @@ p {
 .shadow-red-lg {
   box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.1),
     0 4px 6px -2px rgba(220, 38, 38, 0.05);
+}
+
+/* Dark red theme utilities */
+.bg-red-primary {
+  background-color: var(--red-primary) !important;
+}
+
+.bg-red-secondary {
+  background-color: var(--red-secondary) !important;
+}
+
+.bg-red-accent {
+  background-color: var(--red-accent) !important;
+}
+
+.text-red-primary {
+  color: var(--red-primary) !important;
+}
+
+.text-red-secondary {
+  color: var(--red-secondary) !important;
+}
+
+.text-red-accent {
+  color: var(--red-accent) !important;
+}
+
+.border-red-primary {
+  border-color: var(--red-primary) !important;
+}
+
+.border-red-secondary {
+  border-color: var(--red-secondary) !important;
+}
+
+/* Dark red glow effects */
+.red-glow-dark {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+}
+
+.red-glow-dark-lg {
+  box-shadow: 0 0 40px rgba(220, 38, 38, 0.5);
+}
+
+/* Dark red gradient text */
+.text-gradient-red-dark {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Modern border radius */
