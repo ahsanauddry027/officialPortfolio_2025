@@ -6,6 +6,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import ContactInline from "./components/ContactInline";
 import Skills from "./components/Skills";
+import BackToTopButton from "./components/BackToTopButton";
 import { useMobileSidebar } from "./contexts/MobileSidebarContext";
 import { clsx } from "clsx";
 
@@ -72,6 +73,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      
+      {/* Back to top button */}
+      <BackToTopButton />
     </div>
   );
 }

@@ -275,8 +275,8 @@ export default function Navbar({ links, className }: NavbarProps) {
             <div
               className={cn(
                 "md:hidden fixed inset-0 z-[9998] mobile-sidebar-backdrop transition-all duration-500 ease-out pointer-events-auto",
-                mobileOpen 
-                  ? "opacity-100 backdrop-blur-sm" 
+                mobileOpen
+                  ? "opacity-100 backdrop-blur-sm"
                   : "opacity-0 backdrop-blur-none pointer-events-none"
               )}
               onClick={() => setMobileOpen(false)}
@@ -291,7 +291,9 @@ export default function Navbar({ links, className }: NavbarProps) {
                   : "-translate-x-full opacity-0 scale-95"
               )}
               style={{
-                transform: mobileOpen ? "translateX(0) scale(1)" : "translateX(-100%) scale(0.95)",
+                transform: mobileOpen
+                  ? "translateX(0) scale(1)"
+                  : "translateX(-100%) scale(0.95)",
                 opacity: mobileOpen ? 1 : 0,
                 pointerEvents: mobileOpen ? "auto" : "none",
               }}
@@ -315,12 +317,17 @@ export default function Navbar({ links, className }: NavbarProps) {
               {/* Sidebar content */}
               <div className="relative z-10 h-full flex flex-col overflow-hidden">
                 {/* Sidebar header */}
-                <div className={cn(
-                  "flex items-center justify-between p-4 sm:p-6 border-b border-border bg-muted/50 flex-shrink-0 min-h-[80px] sm:min-h-[96px] transition-all duration-500 ease-out",
-                  mobileOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-                )} style={{
-                  transitionDelay: mobileOpen ? "100ms" : "0ms"
-                }}>
+                <div
+                  className={cn(
+                    "flex items-center justify-between p-4 sm:p-6 border-b border-border bg-muted/50 flex-shrink-0 min-h-[80px] sm:min-h-[96px] transition-all duration-500 ease-out",
+                    mobileOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                  )}
+                  style={{
+                    transitionDelay: mobileOpen ? "100ms" : "0ms",
+                  }}
+                >
                   <div className="flex items-center gap-4 flex-1">
                     <div className="w-12 h-12 rounded-modern bg-red-primary text-white flex items-center justify-center font-bold text-lg shadow-red hover-lift-enhanced red-glow-dark transition-all duration-300 hover:scale-105">
                       AH
@@ -365,13 +372,15 @@ export default function Navbar({ links, className }: NavbarProps) {
                   ref={sidebarNavRef}
                   className={cn(
                     "flex-1 overflow-y-auto p-4 sm:p-6 flex flex-col gap-2 sm:gap-3 min-h-0 max-h-[calc(100vh-280px)] sm:max-h-[calc(100vh-320px)] mobile-nav-height transition-all duration-500 ease-out",
-                    mobileOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                    mobileOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
                   )}
                   style={{
                     WebkitOverflowScrolling: "touch",
                     scrollbarWidth: "thin",
                     scrollbarColor: "rgba(156, 163, 175, 0.3) transparent",
-                    transitionDelay: mobileOpen ? "200ms" : "0ms"
+                    transitionDelay: mobileOpen ? "200ms" : "0ms",
                   }}
                 >
                   {links.map((link, index) => {
@@ -388,7 +397,11 @@ export default function Navbar({ links, className }: NavbarProps) {
                             : "text-muted-foreground hover:text-foreground hover:bg-accent"
                         )}
                         style={{
-                          animation: mobileOpen ? `slideInFromLeft 0.4s ease-out ${0.3 + index * 0.1}s both` : 'none'
+                          animation: mobileOpen
+                            ? `slideInFromLeft 0.4s ease-out ${
+                                0.3 + index * 0.1
+                              }s both`
+                            : "none",
                         }}
                         onClick={() => setMobileOpen(false)}
                       >
@@ -414,12 +427,17 @@ export default function Navbar({ links, className }: NavbarProps) {
                 </nav>
 
                 {/* Sidebar footer */}
-                <div className={cn(
-                  "flex-shrink-0 p-6 border-t border-border bg-muted/30 mobile-sidebar-footer transition-all duration-500 ease-out",
-                  mobileOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-                )} style={{
-                  transitionDelay: mobileOpen ? "400ms" : "0ms"
-                }}>
+                <div
+                  className={cn(
+                    "flex-shrink-0 p-6 border-t border-border bg-muted/30 mobile-sidebar-footer transition-all duration-500 ease-out",
+                    mobileOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                  )}
+                  style={{
+                    transitionDelay: mobileOpen ? "400ms" : "0ms",
+                  }}
+                >
                   <div className="space-y-4 sm:space-y-6">
                     {/* Contact Credentials */}
                     <div className="space-y-2">
