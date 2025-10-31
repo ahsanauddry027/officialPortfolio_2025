@@ -17,13 +17,13 @@ export default function About() {
         className="relative aspect-square sm:aspect-[4/3] md:aspect-[4/3] rounded-2xl overflow-hidden border border-foreground/10 order-2 md:order-1"
       >
         <Image
-          src="/ahsanhabib.png"
+          src="/AHSANHABIB.PNG"
           alt="Ahsan Habib"
           fill
-          className="object-cover transition-transform duration-300 hover:scale-105"
-          style={{
-            objectPosition: "center top",
-          }}
+          className="object-contain transition-transform duration-300 hover:scale-105"
+          // style={{
+          //   objectPosition: "center top",
+          // }}
         />
       </motion.div>
       <motion.div
